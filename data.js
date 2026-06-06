@@ -222,12 +222,11 @@ const DATA = {
   ],
 
   grupo: [
-    { nome: "Ana Paula Silva", funcao: "Pesquisa Histórica e Arqueológica", avatar: "👩‍🎓" },
-    { nome: "Carlos Eduardo Santos", funcao: "Teologia e Contexto Exegético", avatar: "👨‍🎓" },
-    { nome: "Débora Medeiros", funcao: "Eclesiologia e Aplicação Prática", avatar: "👩‍🎓" },
-    { nome: "Fernando Rodrigues", funcao: "Organização Visual e Apresentação", avatar: "👨‍🎓" },
-    { nome: "Juliana Costa", funcao: "Redação de Textos e Roteiro", avatar: "👩‍🎓" },
-    { nome: "Lucas Oliveira", funcao: "Revisão e Cronologia Bíblica", avatar: "👨‍🎓" },
-    { nome: "Mariana Alencar", funcao: "Coordenação Geral e Mediação", avatar: "👩‍🎓" }
+    { nome: "Cassiano", funcao: "", avatar: "👨‍🎓" },
+    { nome: "Eduardo Valério", funcao: "", avatar: "👨‍🎓" },
+    { nome: "Esdras Heiderich", funcao: "", avatar: "👨‍🎓" },
+    { nome: "Isaac Tavares Peixoto", funcao: "", avatar: "👨‍🎓" },
+    { nome: "Kelry de Oliveira", funcao: "", avatar: "👨‍🎓" },
+    { nome: "Milena Flores", funcao: "", avatar: "👩‍🎓" }
   ]
 };
