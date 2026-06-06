@@ -222,11 +222,11 @@ const DATA = {
   ],
 
   grupo: [
+    { nome: "Kelry de Oliveira", funcao: "", avatar: "👩‍🎓" },
+    { nome: "Milena Flores", funcao: "", avatar: "👩‍🎓" },
     { nome: "Cassiano", funcao: "", avatar: "👨‍🎓" },
     { nome: "Eduardo Valério", funcao: "", avatar: "👨‍🎓" },
     { nome: "Esdras Heiderich", funcao: "", avatar: "👨‍🎓" },
-    { nome: "Isaac Tavares Peixoto", funcao: "", avatar: "👨‍🎓" },
-    { nome: "Kelry de Oliveira", funcao: "", avatar: "👨‍🎓" },
-    { nome: "Milena Flores", funcao: "", avatar: "👩‍🎓" }
+    { nome: "Isaac Tavares Peixoto", funcao: "", avatar: "👨‍🎓" }
   ]
 };
