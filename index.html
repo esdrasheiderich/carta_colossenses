@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta aos Colossenses | Painel Interativo</title>
+  <meta name="description" content="Painel interativo e teológico sobre a Epístola do Apóstolo Paulo aos Colossenses para o seminário.">
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="index.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon"><i data-lucide="book-open"></i></div>
+        <h1>Colossenses</h1>
+        <p>Painel Interativo</p>
+      </div>
+      
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="inicio">
+          <i data-lucide="home"></i>
+          <span>Início</span>
+        </button>
+        <button class="nav-item" data-tab="historia">
+          <i data-lucide="scroll"></i>
+          <span>Contexto Histórico</span>
+        </button>
+        <button class="nav-item" data-tab="mapa">
+          <i data-lucide="map-pin"></i>
+          <span>Mapa Vale do Lico</span>
+        </button>
+        <button class="nav-item" data-tab="timeline">
+          <i data-lucide="clock"></i>
+          <span>Linha do Tempo</span>
+        </button>
+        <button class="nav-item" data-tab="quiz">
+          <i data-lucide="shield-alert"></i>
+          <span>Heresia & Quiz</span>
+        </button>
+        <button class="nav-item" data-tab="hino">
+          <i data-lucide="sparkles"></i>
+          <span>Hino Cristológico</span>
+        </button>
+        <button class="nav-item" data-tab="aplicacao">
+          <i data-lucide="git-pull-request"></i>
+          <span>Aplicações Eclesiais</span>
+        </button>
+        <button class="nav-item" data-tab="equipe">
+          <i data-lucide="users"></i>
+          <span>Membros da Equipe</span>
+        </button>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <p>STBLM 2026</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main-content">
+      
+      <!-- TAB 1: INÍCIO -->
+      <section id="tab-inicio" class="tab-pane active">
+        <div class="hero-section">
+          <div class="hero-text">
+            <span class="hero-subtitle">Epístolas Paulinas</span>
+            <h2 class="hero-title">A Supremacia e Suficiência de <span class="text-gold text-glow">Cristo</span></h2>
+            <p class="hero-desc">Um mergulho teológico, arqueológico e histórico na Carta aos Colossenses. Conectando a heresia combatida no século I com os dilemas e desafios das comunidades eclesiais contemporâneas.</p>
+            
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-num">4</span>
+                <span class="stat-label">Capítulos</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">95</span>
+                <span class="stat-label">Versículos</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">62 d.C.</span>
+                <span class="stat-label">Escrita</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="assets/lycus_valley.png" alt="Vale do Lico">
+          </div>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card" data-target-tab="historia">
+            <i data-lucide="landmark"></i>
+            <h3>Arqueologia & Contexto</h3>
+            <p>Descubra a história da antiga cidade de Colossos e as curiosidades arqueológicas do Vale do Lico através de fatos e fotos.</p>
+          </div>
+          <div class="glass-card feature-card" data-target-tab="quiz">
+            <i data-lucide="brain-circuit"></i>
+            <h3>A Heresia Colossense</h3>
+            <p>Identifique os perigos do sincretismo místico e legalista combatido por Paulo respondendo a um Quiz teológico interativo.</p>
+          </div>
+          <div class="glass-card feature-card" data-target-tab="hino">
+            <i data-lucide="award"></i>
+            <h3>Supremacia de Cristo</h3>
+            <p>Explore o majestoso hino cristológico de Colossenses 1:15-20 com análises exegéticas detalhadas e versículo por versículo.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: HISTÓRIA -->
+      <section id="tab-historia" class="tab-pane">
+        <div class="page-header">
+          <div>
+            <h2>Contexto Histórico & Arqueológico</h2>
+            <p>Conheça Colossos, a cidade do Vale do Lico que abrigou os destinatários da carta paulina.</p>
+          </div>
+        </div>
+        
+        <div class="history-layout">
+          <div class="glass-card history-intro gold-gradient-bg">
+            <p style="line-height: 1.6; font-size: 1rem;">
+              Localizada na região da Frígia (atual Turquia), Colossos foi uma grande e próspera cidade nas rotas de comércio do Oriente, famosa por sua lã púrpura violeta. Contudo, no século I d.C., com a fundação das vizinhas Laodicéia e Hierápolis, Colossos perdeu relevância comercial e se tornou uma vila menor. Apesar de pequena, a igreja local enfrentou desafios teológicos cruciais que motivaram um dos escritos mais densos do Novo Testamento.
+            </p>
+          </div>
+
+          <div class="curiosidades-grid" id="curiosidades-container">
+            <!-- Gerado dinamicamente via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: MAPA INTERATIVO -->
+      <section id="tab-mapa" class="tab-pane">
+        <div class="page-header">
+          <div>
+            <h2>O Vale do Lico</h2>
+            <p>Explore o mapa interativo e veja a relação geográfica entre as três cidades irmãs.</p>
+          </div>
+        </div>
+        
+        <div class="map-layout">
+          <div class="glass-card map-card">
+            <!-- Mapa Leaflet -->
+            <div class="map-svg-container">
+               <div id="leaflet-map"></div>
+            </div>
+          </div>
+          
+          <div class="glass-card map-details-card" id="map-details-container">
+            <div class="map-details-placeholder">
+              <i data-lucide="map"></i>
+              <h3>Selecione uma Cidade</h3>
+              <p>Clique ou passe o mouse nos pontos interativos do mapa para ler os dados históricos e geográficos da região.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legenda do Mapa Externa (HTML) -->
+        <div class="glass-card map-legend-card">
+          <div class="map-legend-external">
+            <div class="legend-item">
+              <span class="legend-dot interactive"></span>
+              <span>Cidade Interativa</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot static"></span>
+              <span>Cidade da Província</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-line road"></span>
+              <span>Via Sebaste (Estrada)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-line river"></span>
+              <span>Rios Meandro e Lico</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-line flow-hot"></span>
+              <span>Água Quente (Cura)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-line flow-cold"></span>
+              <span>Água Fria (Refrigério)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: LINHA DO TEMPO -->
+      <section id="tab-timeline" class="tab-pane">
+        <div class="page-header">
+          <div>
+            <h2>Contexto Histórico do Envio da Carta</h2>
+            <p>Acompanhe a cronologia aproximada do ministério de Paulo e a redação da epístola.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-container" id="timeline-container">
+          <div class="timeline-line"></div>
+          <!-- Gerado dinamicamente via JS -->
+        </div>
+      </section>
+
+      <!-- TAB 5: HERESIA & QUIZ -->
+      <section id="tab-quiz" class="tab-pane">
+        <div class="page-header">
+          <div>
+            <h2>A Heresia de Colossos & Quiz Teológico</h2>
+            <p>Investigue as falsas doutrinas que assolavam a igreja e teste seus conhecimentos bíblicos.</p>
+          </div>
+        </div>
+        
+        <div class="quiz-layout">
+          <div class="glass-card heresy-intro-card">
+            <h3>O Sincretismo Colossense</h3>
+            <p>A igreja de Colossos estava sendo infiltrada por um ensino confuso e enganoso, frequentemente chamado pelos teólogos de "Heresia Colossense". Esta não era uma única seita estruturada, mas uma mistura (sincretismo) de várias fontes religiosas:</p>
+            
+            <div class="heresy-list">
+              <div class="heresy-item">
+                <i data-lucide="binary"></i>
+                <span><strong>Filosofias Humanas:</strong> Tradições pagãs intelectuais e especulações de Éfeso.</span>
+              </div>
+              <div class="heresy-item">
+                <i data-lucide="calendar"></i>
+                <span><strong>Legalismo Judaico:</strong> Exigência de circuncisão, festividades e restrições alimentares.</span>
+              </div>
+              <div class="heresy-item">
+                <i data-lucide="eye"></i>
+                <span><strong>Misticismo / Culto a Anjos:</strong> Busca por visões celestes e veneração de intermediários espirituais.</span>
+              </div>
+              <div class="heresy-item">
+                <i data-lucide="scissors"></i>
+                <span><strong>Ascetismo Rígido:</strong> Castigo do corpo físico para supostamente alcançar a pureza da alma.</span>
+              </div>
+            </div>
+            
+            <p style="margin-top: 15px;">Paulo combate vigorosamente essa doutrina, insistindo que **só Cristo** é a cabeça e a plenitude de tudo.</p>
+          </div>
+
+          <div class="glass-card quiz-card" id="quiz-container">
+            <!-- Gerado dinamicamente via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: HINO CRISTOLÓGICO -->
+      <section id="tab-hino" class="tab-pane">
+        <div class="page-header">
+          <div>
+            <h2>O Hino Cristológico (Colossenses 1:15-20)</h2>
+            <p>Uma das maiores passagens teológicas da Bíblia sobre a natureza e obra de Jesus Cristo.</p>
+          </div>
+        </div>
+        
+        <div class="hino-layout">
+          <div class="hino-pane" id="hino-verse-list">
+            <!-- Gerado dinamicamente via JS -->
+          </div>
+          
+          <div class="glass-card hino-exegesis-pane" id="hino-exegesis-container">
+            <div class="hino-exegesis-placeholder">
+              <i data-lucide="feather"></i>
+              <h3>Estudo Teológico do Hino</h3>
+              <p>Clique em qualquer verso à esquerda para ler a análise literária e exegética correspondente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 7: APLICAÇÕES ECLESIAIS -->
+      <section id="tab-aplicacao" class="tab-pane">
+        <div class="page-header">
+          <div>
+            <h2>Conexões Eclesiológicas</h2>
+            <p>Trazendo a mensagem de Colossenses do século I para as igrejas do século XXI.</p>
+          </div>
+        </div>
+        
+        <div class="applications-layout">
+          <div class="filter-bar" id="category-filter-bar">
+            <button class="filter-btn active" data-filter="all">Todas as Categorias</button>
+            <button class="filter-btn" data-filter="Teologia e Doutrina">Teologia e Doutrina</button>
+            <button class="filter-btn" data-filter="Espiritualidade e Misticismo">Espiritualidade e Misticismo</button>
+            <button class="filter-btn" data-filter="Prática e Liturgia">Prática e Liturgia</button>
+            <button class="filter-btn" data-filter="Comportamento e Estilo de Vida">Comportamento e Estilo de Vida</button>
+          </div>
+
+          <div class="matrix-grid" id="matrix-container">
+            <!-- Gerado dinamicamente via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 8: MEMBROS DA EQUIPE -->
+      <section id="tab-equipe" class="tab-pane">
+        <div class="page-header">
+          <div>
+            <h2>Apresentação da Equipe</h2>
+            <p>Integrantes do grupo responsáveis pelo trabalho do seminário teológico.</p>
+          </div>
+        </div>
+        
+        <div class="team-layout">
+          <div class="glass-card gold-gradient-bg" style="text-align: center; padding: 30px;">
+            <h3 style="color: var(--gold-light); font-size: 1.5rem; margin-bottom: 10px;">Trabalho em Grupo - Epístolas Paulinas</h3>
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.5;">
+              Apresentação para a classe em forma de painel interativo. Análise exegética e eclesiológica da Carta aos Colossenses aplicada às igrejas modernas.
+            </p>
+          </div>
+
+          <div class="team-grid" id="team-container">
+            <!-- Gerado dinamicamente via JS -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- CURIOSITY MODAL DETAIL -->
+  <div class="modal-overlay" id="curiosidade-modal">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modal-close"><i data-lucide="x"></i></button>
+      <img src="" alt="Banner" class="modal-img-banner" id="modal-banner">
+      <div class="modal-content">
+        <span class="modal-tag" id="modal-tag">Categoria</span>
+        <h3 class="modal-title" id="modal-title">Título Curiosidade</h3>
+        <p class="modal-body-text" id="modal-body">Texto detalhado da curiosidade...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="data.js"></script>
+  <script src="index.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>
