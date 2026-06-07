@@ -8,7 +8,7 @@ Painel interativo e teológico sobre a Epístola do Apóstolo Paulo aos Colossen
 - **Contexto Histórico** — Arqueologia e curiosidades sobre a antiga cidade de Colossos e o Vale do Lico
 - **Mapa Interativo** — Mapa com Leaflet mostrando a relação geográfica entre Colossos, Laodicéia e Hierápolis
 - **Linha do Tempo** — Cronologia dos eventos históricos e teológicos
-- **Heresia & Quiz** — Quiz teológico competitivo sobre a Heresia Colossense
+- **Laboratório de Apologética** — Diagnóstico interativo de desvios doutrinários da igreja de Colossos com antídotos de Paulo e ranking competitivo
 - **Hino Cristológico** — Análise exegética versículo por versículo de Colossenses 1:15-20
 - **Aplicações Eclesiais** — Paralelos entre a heresia do século I e desafios contemporâneos da igreja
 - **Membros da Equipe** — Informações sobre os membros do projeto

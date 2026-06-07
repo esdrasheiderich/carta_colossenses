@@ -30,7 +30,7 @@ const DATA = {
       titulo: "Epafras: O Fundador Local",
       resumo: "Paulo não fundou pessoalmente a igreja em Colossos; ela nasceu através do trabalho de Epafras.",
       detalhes: "Apesar de ser uma 'Epístola Paulina', Paulo deixa claro que nunca visitou pessoalmente as igrejas do Vale do Lico (Colossenses 2:1). O fundador da comunidade local foi Epafras, provavelmente um colossense convertido pelo ministério de Paulo em Éfeso (durante a viagem de 3 anos de Paulo descrita em Atos 19). Epafras viajou até Roma para visitar Paulo na prisão e relatar a situação da igreja, especialmente os perigos da heresia que começava a infiltrar-se na comunidade (Col 1:7-8; 4:12-13).",
-      imagem: "assets/ancient_coins.png",
+      imagem: "assets/epafras.png",
       categoria: "História Bíblica"
     }
   ],
@@ -112,50 +112,90 @@ const DATA = {
     }
   ],
 
-  quiz: [
+  casosApologeticos: [
     {
-      pergunta: "Qual era o principal objetivo de Paulo ao escrever a Carta aos Colossenses?",
-      opcoes: [
-        "Organizar a coleta financeira para os pobres em Jerusalém.",
-        "Combater uma falsa doutrina sincretista que ameaçava a igreja, exaltando a supremacia absoluta de Cristo.",
-        "Pedir desculpas por ainda não ter visitado a cidade pessoalmente.",
-        "Instruir os presbíteros locais sobre como realizar o batismo e a Ceia do Senhor."
+      id: "caso-01",
+      membro: "Aristarco de Colossos",
+      avatar: "👤",
+      relato: "Graça e paz, Epafras. Alguns irmãos que vieram da Judeia estão insistindo que a nossa fé em Cristo não é suficiente. Eles dizem que se nós, os gentios, não nos circuncidarmos e não guardarmos estritamente as luas novas, os sábados e as restrições alimentares da Lei de Moisés, ainda estamos impuros diante de Deus. Estou confuso, pois pensei que a nossa dívida já havia sido paga na cruz. Devo voltar a seguir estas regras e rituais para ser salvo?",
+      heresiaCorreta: "Legalismo Judaico",
+      opcoesHeresia: [
+        "Legalismo Judaico",
+        "Misticismo & Culto a Anjos",
+        "Ascetismo Rígido",
+        "Filosofias Pagãs (Gnosticismo)"
       ],
-      correta: 1,
-      explicacao: "A epístola foi motivada pelo relato de Epafras sobre a 'Heresia Colossense', que misturava legalismo judaico, filosofia grega e misticismo pagão. Paulo responde demonstrando que Cristo é suficiente e supremo sobre todas as coisas."
+      passagemCorreta: "Colossenses 2:16-17",
+      opcoesPassagem: [
+        "Colossenses 1:15-16",
+        "Colossenses 2:16-17",
+        "Colossenses 2:20-22",
+        "Colossenses 3:1-2"
+      ],
+      explicacao: "Paulo argumenta em Colossenses 2:16-17 que as festas, luas novas e sábados eram apenas 'sombras' que apontavam para o que viria. A realidade ('o corpo'), no entanto, pertence a Cristo. Impor tais regras é regredir para as sombras, ignorando que Cristo cumpriu e aboliu essas exigências na cruz."
     },
     {
-      pergunta: "Quem fundou a comunidade cristã em Colossos, de acordo com o texto bíblico?",
-      opcoes: [
-        "O próprio apóstolo Paulo durante sua segunda viagem missionária.",
-        "Timóteo, que foi enviado por Paulo para estabelecer o trabalho na Ásia Menor.",
-        "Epafras, um líder local que se converteu e levou o evangelho para a região do Vale do Lico.",
-        "Áquila e Priscila, após serem expulsos de Roma pelo edito de Cláudio."
+      id: "caso-02",
+      membro: "Áfia de Laodiceia",
+      avatar: "👩",
+      relato: "Saudações, amados líderes. Uma irmã na comunidade disse ter tido visões celestes incríveis. Ela afirma que fomos introduzidos a um nível superior de espiritualidade. Segundo ela, para realmente agradar a Deus e ter proteção contra as forças espirituais do ar, devemos invocar e adorar os anjos e seres celestes intermediários, prestando culto a eles. Ela alega que isso é sinal de verdadeira humildade. Isso procede? As visões dela devem guiar a igreja?",
+      heresiaCorreta: "Misticismo & Culto a Anjos",
+      opcoesHeresia: [
+        "Legalismo Judaico",
+        "Misticismo & Culto a Anjos",
+        "Ascetismo Rígido",
+        "Filosofias Pagãs (Gnosticismo)"
       ],
-      correta: 2,
-      explicacao: "Colossenses 1:7 afirma que eles aprenderam o evangelho por meio de Epafras, descrito como 'amado conservo' e 'fiel ministro de Cristo'. Paulo nunca havia estado fisicamente em Colossos quando escreveu a epístola."
+      passagemCorreta: "Colossenses 2:18-19",
+      opcoesPassagem: [
+        "Colossenses 1:18-20",
+        "Colossenses 2:8",
+        "Colossenses 2:18-19",
+        "Colossenses 3:5"
+      ],
+      explicacao: "Em Colossenses 2:18-19, Paulo condena veementemente quem se apoia em visões místicas extravagantes e no culto aos anjos. Ele adverte que esses ensinos são fruto de uma mente carnal e soberba, e que a igreja deve permanecer firmemente 'ligada à Cabeça', que é Cristo. Só de Cristo provém o verdadeiro crescimento espiritual."
     },
     {
-      pergunta: "Qual das seguintes práticas NÃO caracterizava a Heresia Colossense combatida na carta?",
-      opcoes: [
-        "A exigência de circuncisão e guarda de festas e sábados judaicos.",
-        "O culto aos anjos e visões místicas extravagantes.",
-        "O ascetismo severo com regras como 'não manuseies, não proves, não toques'.",
-        "A rejeição total da ressurreição física de Jesus Cristo (defendida pelos saduceus)."
+      id: "caso-03",
+      membro: "Onésimo",
+      avatar: "🏃‍♂️",
+      relato: "Irmãos, tenho buscado a santidade de todas as formas, mas o pecado continua batendo à minha porta. Alguns mestres locais me aconselharam a seguir regras rígidas de autoprivação: não tocar em certas coisas, não provar de certos alimentos e castigar o meu corpo físico através do jejum extremo e da humilhação da carne. Eles dizem que esse ascetismo rígido é o único remédio contra as paixões carnais. Esse autoflagelo realmente purifica a alma?",
+      heresiaCorreta: "Ascetismo Rígido",
+      opcoesHeresia: [
+        "Legalismo Judaico",
+        "Misticismo & Culto a Anjos",
+        "Ascetismo Rígido",
+        "Filosofias Pagãs (Gnosticismo)"
       ],
-      correta: 3,
-      explicacao: "Embora a heresia minasse a divindade e suficiência de Cristo (sincretismo filosófico, ascético e místico - Col 2:8, 16-23), a controvérsia específica sobre a ressurreição física no estilo dos saduceus não é o foco principal combatido em Colossenses, diferentemente de 1 Coríntios 15."
+      passagemCorreta: "Colossenses 2:20-23",
+      opcoesPassagem: [
+        "Colossenses 1:21-22",
+        "Colossenses 2:13-14",
+        "Colossenses 2:20-23",
+        "Colossenses 3:12-13"
+      ],
+      explicacao: "Paulo refuta o ascetismo em Colossenses 2:20-23, explicando que essas regras humanas de 'não manuseies, não proves, não toques' têm apenas 'aparência de sabedoria' por causa da devoção voluntária e falsa humildade, mas não têm valor algum contra a satisfação da carne. A verdadeira vitória sobre o pecado vem da união com Cristo em Sua morte e ressurreição, não do castigo físico."
     },
     {
-      pergunta: "No famoso Hino Cristológico (Col 1:15-20), como Paulo descreve a relação de Jesus com a criação?",
-      opcoes: [
-        "Como a primeira criatura feita por Deus, responsável por ajudar na criação dos anjos.",
-        "Como o próprio Criador de todas as coisas, visíveis e invisíveis, no céu e na terra, sendo ele antes de todas as coisas.",
-        "Como um mestre espiritual iluminado que alcançou a divindade após o batismo no Jordão.",
-        "Como um mero reflexo simbólico da sabedoria de Deus na natureza."
+      id: "caso-04",
+      membro: "Filólogo",
+      avatar: "👨‍🏫",
+      relato: "Graça e paz. Tenho ouvido discursos eloquentes na praça pública de Colossos. Alguns filósofos gregos estão dizendo que a matéria física é inerentemente má, e que o Cristo Divino jamais poderia ter habitado em um corpo humano real e de carne. Eles nos oferecem uma 'sabedoria superior' e especulações profundas sobre o cosmo para além do que ouvimos sobre Jesus. O evangelho de Epafras está incompleto? Precisamos dessa sabedoria grega?",
+      heresiaCorreta: "Filosofias Pagãs (Gnosticismo)",
+      opcoesHeresia: [
+        "Legalismo Judaico",
+        "Misticismo & Culto a Anjos",
+        "Ascetismo Rígido",
+        "Filosofias Pagãs (Gnosticismo)"
       ],
-      correta: 1,
-      explicacao: "Paulo declara categoricamente em Col 1:16: 'pois, nele, foram criadas todas as coisas, nos céus e sobre a terra, as visíveis e as invisíveis... Tudo foi criado por meio dele e para ele'. Jesus não é criatura, mas o Criador supremo."
+      passagemCorreta: "Colossenses 2:8-9",
+      opcoesPassagem: [
+        "Colossenses 1:27",
+        "Colossenses 2:8-9",
+        "Colossenses 2:16",
+        "Colossenses 4:5-6"
+      ],
+      explicacao: "Em Colossenses 2:8-9, Paulo nos alerta a ter cuidado para que ninguém nos escravize com filosofias e vãs sutilezas baseadas em tradições humanas e nos rudimentos do mundo, e não em Cristo. Ele estabelece o maior fundamento contra o proto-gnosticismo: 'porque nele habita, corporalmente, toda a plenitude da divindade'. Jesus é plenamente Deus e encarnou de forma real e perfeita."
     }
   ],
 
@@ -223,9 +263,9 @@ const DATA = {
 
   grupo: [
     { nome: "Kelry de Oliveira", funcao: "", avatar: "👩‍🎓" },
-    { nome: "Milena Flores", funcao: "", avatar: "👩‍🎓" },
-    { nome: "Cassiano", funcao: "", avatar: "👨‍🎓" },
-    { nome: "Eduardo Valério", funcao: "", avatar: "👨‍🎓" },
+    { nome: "Milena de Souza Flores", funcao: "", avatar: "👩‍🎓" },
+    { nome: "Cassiano Lamy", funcao: "", avatar: "👨‍🎓" },
+    { nome: "Eduardo Alves Valério", funcao: "", avatar: "👨‍🎓" },
     { nome: "Esdras Heiderich", funcao: "", avatar: "👨‍🎓" },
     { nome: "Isaac Tavares Peixoto", funcao: "", avatar: "👨‍🎓" }
   ]

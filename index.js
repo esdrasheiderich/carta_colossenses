@@ -33,8 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Executa lógicas específicas de abas, se necessário
     if (tabId === "mapa") {
-      if (typeof window.initLeafletMap === 'function') {
-        window.initLeafletMap();
+      const defaultPin = document.getElementById("pin-colossos");
+      if (defaultPin) {
+        defaultPin.dispatchEvent(new Event("click"));
       }
     } else if (tabId === "hino") {
       // Abre exegese do primeiro verso por padrão
@@ -133,8 +134,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const mapCityGroups = document.querySelectorAll(".map-city-group");
   const mapDetailsContainer = document.getElementById("map-details-container");
 
+  // Variáveis de Zoom e Pan do Mapa
+  let zoomLevel = 1.0;
+  let panX = 0;
+  let panY = 0;
+  let isPanning = false;
+  let startX = 0;
+  let startY = 0;
+  let hasDragged = false;
+
+  const zoomGroup = document.getElementById("map-zoom-group");
+  const svgElement = document.querySelector(".map-svg");
+
+  function updateMapTransform() {
+    if (!zoomGroup) return;
+    
+    // Limita o pan para não arrastar o mapa fora da tela visível
+    if (zoomLevel === 1.0) {
+      panX = 0;
+      panY = 0;
+    } else {
+      const maxPanX = (zoomLevel - 1) * 450;
+      const maxPanY = (zoomLevel - 1) * 275;
+      panX = Math.max(-maxPanX, Math.min(maxPanX, panX));
+      panY = Math.max(-maxPanY, Math.min(maxPanY, panY));
+    }
+    
+    zoomGroup.setAttribute("transform", `translate(${panX}, ${panY}) scale(${zoomLevel})`);
+  }
+
   mapCityGroups.forEach(group => {
-    group.addEventListener("click", () => {
+    group.addEventListener("click", (e) => {
+      // Ignora clique se houve arrasto
+      if (hasDragged) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+
       // Remove active de todas as cidades no mapa
       mapCityGroups.forEach(g => g.classList.remove("active"));
       
@@ -150,6 +187,84 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Botões de controle de zoom flutuantes
+  const btnZoomIn = document.getElementById("btn-zoom-in");
+  const btnZoomOut = document.getElementById("btn-zoom-out");
+  const btnZoomReset = document.getElementById("btn-zoom-reset");
+
+  if (btnZoomIn) {
+    btnZoomIn.addEventListener("click", () => {
+      zoomLevel = Math.min(3.0, zoomLevel + 0.25);
+      updateMapTransform();
+    });
+  }
+
+  if (btnZoomOut) {
+    btnZoomOut.addEventListener("click", () => {
+      zoomLevel = Math.max(1.0, zoomLevel - 0.25);
+      updateMapTransform();
+    });
+  }
+
+  if (btnZoomReset) {
+    btnZoomReset.addEventListener("click", () => {
+      zoomLevel = 1.0;
+      panX = 0;
+      panY = 0;
+      updateMapTransform();
+    });
+  }
+
+  // Interações direta de mouse (Wheel Zoom + Drag to Pan)
+  if (svgElement) {
+    svgElement.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const zoomFactor = 0.15;
+      if (e.deltaY < 0) {
+        zoomLevel = Math.min(3.0, zoomLevel + zoomFactor);
+      } else {
+        zoomLevel = Math.max(1.0, zoomLevel - zoomFactor);
+      }
+      updateMapTransform();
+    }, { passive: false });
+
+    svgElement.addEventListener("mousedown", (e) => {
+      if (e.button !== 0) return; // Apenas clique esquerdo
+      isPanning = true;
+      hasDragged = false;
+      svgElement.classList.add("is-dragging");
+      startX = e.clientX - panX;
+      startY = e.clientY - panY;
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isPanning) return;
+      
+      const newPanX = e.clientX - startX;
+      const newPanY = e.clientY - startY;
+
+      // Se mover mais de 5 pixels, considera-se arrastado (previne clique ao soltar)
+      if (Math.abs(newPanX - panX) > 5 || Math.abs(newPanY - panY) > 5) {
+        hasDragged = true;
+      }
+
+      panX = newPanX;
+      panY = newPanY;
+      updateMapTransform();
+    });
+
+    window.addEventListener("mouseup", () => {
+      if (!isPanning) return;
+      isPanning = false;
+      svgElement.classList.remove("is-dragging");
+      
+      // Delay minúsculo para prevenir disparar cliques das cidades
+      setTimeout(() => {
+        hasDragged = false;
+      }, 50);
+    });
+  }
 
   function renderCityDetails(city) {
     if (!mapDetailsContainer) return;
@@ -252,389 +367,170 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ==========================================
-  // 5. QUIZ COMPETITIVO DA HERESIA (com Ranking)
+  // 5. LABORATÓRIO DE APOLOGÉTICA (DASHBOARD)
   // ==========================================
   const quizContainer = document.getElementById("quiz-container");
 
-  // Estado do quiz competitivo
-  const QUIZ_TIME = 20; // segundos por pergunta
-  const POINTS_PER_CORRECT = 100;
-  const POINTS_TIME_BONUS = 50; // bônus máximo por velocidade
-
-  let quizState = {
-    playerName: "",
-    index: 0,
-    score: 0,
-    answered: false,
-    timerInterval: null,
-    timeLeft: QUIZ_TIME,
-    startTime: null,
-    answers: [], // { correct: bool, timeUsed: number }
+  const heresyDescriptions = {
+    "Legalismo Judaico": "Imposição de ordenanças rituais e leis cerimoniais judaicas (comida, bebida, festividades, sábados) como requisitos para a salvação e santidade.",
+    "Misticismo & Culto a Anjos": "Prática de veneração a seres intermediários e obsessão por experiências espirituais e visões místicas superiores.",
+    "Ascetismo Rígido": "Autoprivação extrema, castigo do corpo físico e negação de necessidades humanas básicas sob a falsa premissa de alcançar purificação espiritual.",
+    "Filosofias Pagãs (Gnosticismo)": "Sincretismo intelectual grego-helenístico que rejeitava a realidade física e negava a encarnação perfeita e corporal de Cristo."
   };
 
-  // Ranking persistente na sessão (array de { name, score, correct, total })
-  if (!window.quizLeaderboard) window.quizLeaderboard = [];
+  let activeCaseIndex = 0;
+  let revealedStates = Array.from({ length: DATA.casosApologeticos.length }, () => ({
+    diagnosis: false,
+    antidote: false
+  }));
 
-  // ── TELA 1: REGISTRO ─────────────────────────────────────────────────
-  function renderQuizRegistration() {
+  function renderDashboard() {
     if (!quizContainer) return;
-    clearTimerInterval();
 
-    const hasPlayers = window.quizLeaderboard.length > 0;
-    const rankingPreview = hasPlayers ? `
-      <div class="quiz-ranking-preview">
-        <div class="quiz-ranking-title">🏆 Ranking Atual</div>
-        ${window.quizLeaderboard.slice(0, 5).map((p, i) => `
-          <div class="quiz-rank-row">
-            <span class="quiz-rank-pos">${['🥇','🥈','🥉','4º','5º'][i]}</span>
-            <span class="quiz-rank-name">${escapeHtml(p.name)}</span>
-            <span class="quiz-rank-score">${p.score} pts</span>
+    const currentCase = DATA.casosApologeticos[activeCaseIndex];
+    const isDiagnosisRevealed = revealedStates[activeCaseIndex].diagnosis;
+    const isAntidoteRevealed = revealedStates[activeCaseIndex].antidote;
+
+    // 1. Gerar Abas Selector
+    let tabsHtml = "";
+    DATA.casosApologeticos.forEach((c, idx) => {
+      const isActive = idx === activeCaseIndex ? "active" : "";
+      tabsHtml += `
+        <button class="lab-case-tab ${isActive}" data-case-index="${idx}">
+          <span>${c.avatar}</span>
+          <span>${c.membro.split(" ")[0]}</span>
+        </button>
+      `;
+    });
+
+    // 2. Gerar Card do Diagnóstico (Locked/Unlocked)
+    let diagnosisHtml = "";
+    if (isDiagnosisRevealed) {
+      diagnosisHtml = `
+        <div class="unlocked-content">
+          <div class="unlocked-header">
+            <i data-lucide="search"></i>
+            <h4>Diagnóstico da Heresia</h4>
           </div>
-        `).join("")}
-      </div>
-    ` : "";
-
-    quizContainer.innerHTML = `
-      <div class="quiz-registration">
-        <div class="quiz-reg-icon">✝️</div>
-        <h3 class="quiz-reg-title">Quiz Teológico</h3>
-        <p class="quiz-reg-subtitle">Teste seus conhecimentos sobre a Carta aos Colossenses.<br>
-          <strong>${DATA.quiz.length} perguntas · ${QUIZ_TIME}s por pergunta · Pontos por velocidade</strong>
-        </p>
-        <div class="quiz-reg-form">
-          <input type="text" id="quiz-player-name" class="quiz-name-input"
-            placeholder="Digite seu nome..." maxlength="30" autocomplete="off" />
-          <button id="quiz-start-btn" class="quiz-action-btn quiz-start-btn">
-            Iniciar Quiz
-          </button>
+          <div class="unlocked-body">
+            <strong>${currentCase.heresiaCorreta}</strong>
+            <p>${heresyDescriptions[currentCase.heresiaCorreta] || ""}</p>
+          </div>
         </div>
-        ${rankingPreview}
-      </div>
-    `;
+      `;
+    } else {
+      diagnosisHtml = `
+        <div class="seal-icon">🔍</div>
+        <div class="reveal-title">Revelar Diagnóstico</div>
+        <div class="reveal-subtitle">Clique para identificar a heresia do caso</div>
+      `;
+    }
 
-    const nameInput = document.getElementById("quiz-player-name");
-    const startBtn = document.getElementById("quiz-start-btn");
-
-    nameInput.focus();
-
-    const startGame = () => {
-      const name = nameInput.value.trim();
-      if (!name) {
-        nameInput.classList.add("quiz-input-error");
-        nameInput.placeholder = "⚠ Digite seu nome para começar!";
-        nameInput.focus();
-        return;
-      }
-      nameInput.classList.remove("quiz-input-error");
-      quizState = { playerName: name, index: 0, score: 0, answered: false,
-                    timerInterval: null, timeLeft: QUIZ_TIME, startTime: null, answers: [] };
-      renderQuizQuestion();
-    };
-
-    startBtn.addEventListener("click", startGame);
-    nameInput.addEventListener("keydown", e => { if (e.key === "Enter") startGame(); });
-  }
-
-  // ── TELA 2: PERGUNTA ─────────────────────────────────────────────────
-  function renderQuizQuestion() {
-    if (!quizContainer) return;
-    clearTimerInterval();
-
-    const q = DATA.quiz[quizState.index];
-    const progress = ((quizState.index) / DATA.quiz.length) * 100;
+    // 3. Gerar Card do Antídoto (Locked/Unlocked)
+    let antidoteHtml = "";
+    if (isAntidoteRevealed) {
+      antidoteHtml = `
+        <div class="unlocked-content">
+          <div class="unlocked-header">
+            <i data-lucide="shield"></i>
+            <h4>Antídoto Bíblico</h4>
+          </div>
+          <div class="unlocked-body">
+            <strong>${currentCase.passagemCorreta}</strong>
+            <p style="text-align: justify;">${currentCase.explicacao}</p>
+          </div>
+        </div>
+      `;
+    } else {
+      antidoteHtml = `
+        <div class="seal-icon">🛡️</div>
+        <div class="reveal-title">Revelar Antídoto</div>
+        <div class="reveal-subtitle">Clique para prescrever a refutação de Paulo</div>
+      `;
+    }
 
     quizContainer.innerHTML = `
-      <div class="quiz-header-row">
-        <div class="quiz-player-badge">👤 ${escapeHtml(quizState.playerName)}</div>
-        <div class="quiz-score-badge">⭐ ${quizState.score} pts</div>
+      <div class="lab-case-selector">
+        ${tabsHtml}
       </div>
 
-      <div class="quiz-progress-info">
-        <span>Pergunta ${quizState.index + 1} de ${DATA.quiz.length}</span>
-        <span class="quiz-timer-label" id="quiz-timer-label">${QUIZ_TIME}s</span>
-      </div>
-      <div class="quiz-progress-bar-container">
-        <div class="quiz-progress-bar" id="quiz-progress-bar" style="width:${progress}%"></div>
-      </div>
-
-      <!-- Timer Arc SVG -->
-      <div class="quiz-timer-wrap">
-        <svg class="quiz-timer-svg" viewBox="0 0 80 80">
-          <circle cx="40" cy="40" r="34" class="quiz-timer-track"/>
-          <circle cx="40" cy="40" r="34" class="quiz-timer-arc" id="quiz-timer-arc"
-            stroke-dasharray="213.6" stroke-dashoffset="0"/>
-          <text x="40" y="46" class="quiz-timer-text" id="quiz-timer-text">${QUIZ_TIME}</text>
-        </svg>
+      <div class="lab-parchment" id="lab-parchment-container">
+        <div class="lab-parchment-header">
+          <span class="lab-parchment-avatar">${currentCase.avatar}</span>
+          <span class="lab-parchment-author">${currentCase.membro}</span>
+        </div>
+        <div class="lab-parchment-letter">"${currentCase.relato}"</div>
       </div>
 
-      <div class="quiz-question">${q.pergunta}</div>
-
-      <div class="quiz-options" id="quiz-options">
-        ${q.opcoes.map((opt, i) => `
-          <button class="quiz-option" data-index="${i}">
-            <span class="quiz-opt-letter">${"ABCD"[i]}</span>
-            <span class="quiz-opt-text">${opt}</span>
-          </button>
-        `).join("")}
+      <div class="reveal-cards-grid">
+        <div class="reveal-card ${isDiagnosisRevealed ? 'unlocked' : 'locked'} diagnosis-card" id="diagnosis-reveal-card">
+          ${diagnosisHtml}
+        </div>
+        <div class="reveal-card ${isAntidoteRevealed ? 'unlocked' : 'locked'} antidote-card" id="antidote-reveal-card">
+          ${antidoteHtml}
+        </div>
       </div>
 
-      <div id="quiz-feedback-box" class="quiz-feedback" style="display:none;"></div>
-      <button id="quiz-next-btn" class="quiz-action-btn" style="display:none;">
-        ${quizState.index + 1 < DATA.quiz.length ? "Próxima Pergunta →" : "Ver Resultado 🏁"}
-      </button>
+      <div class="lab-reset-container">
+        <button class="lab-reset-btn" id="lab-reset-btn">
+          <i data-lucide="refresh-cw"></i> Ocultar Respostas
+        </button>
+      </div>
     `;
 
-    // Inicia o timer
-    quizState.timeLeft = QUIZ_TIME;
-    quizState.startTime = Date.now();
-    quizState.answered = false;
+    // Inicializa ícones do Lucide após renderizar
+    if (typeof lucide !== "undefined") {
+      lucide.createIcons();
+    }
 
-    const arc = document.getElementById("quiz-timer-arc");
-    const timerText = document.getElementById("quiz-timer-text");
-    const timerLabel = document.getElementById("quiz-timer-label");
-    const totalArc = 213.6;
-
-    quizState.timerInterval = setInterval(() => {
-      quizState.timeLeft--;
-      const pct = quizState.timeLeft / QUIZ_TIME;
-      if (arc) arc.style.strokeDashoffset = totalArc * (1 - pct);
-      if (timerText) timerText.textContent = quizState.timeLeft;
-      if (timerLabel) timerLabel.textContent = quizState.timeLeft + "s";
-
-      // Cor muda para vermelho quando < 6s
-      if (arc) {
-        arc.style.stroke = quizState.timeLeft <= 6
-          ? `hsl(${quizState.timeLeft * 10}, 80%, 55%)`
-          : "#d4af37";
-      }
-
-      if (quizState.timeLeft <= 0) {
-        clearTimerInterval();
-        handleQuizAnswer(-1); // -1 = tempo esgotado
-      }
-    }, 1000);
-
-    // Listeners das opções
-    const optionBtns = quizContainer.querySelectorAll(".quiz-option");
-    optionBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        if (quizState.answered) return;
-        const idx = parseInt(btn.getAttribute("data-index"));
-        handleQuizAnswer(idx);
+    // Bind Event Listeners
+    // A) Case Tabs Selector
+    const tabs = quizContainer.querySelectorAll(".lab-case-tab");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const idx = parseInt(tab.getAttribute("data-case-index"));
+        activeCaseIndex = idx;
+        renderDashboard();
       });
     });
 
-    // Listener avançar
-    document.getElementById("quiz-next-btn").addEventListener("click", () => {
-      quizState.index++;
-      if (quizState.index >= DATA.quiz.length) {
-        renderQuizResults();
-      } else {
-        renderQuizQuestion();
-      }
-    });
-  }
-
-  function handleQuizAnswer(selectedIndex) {
-    if (quizState.answered) return;
-    quizState.answered = true;
-    clearTimerInterval();
-
-    const q = DATA.quiz[quizState.index];
-    const timeUsed = Math.round((Date.now() - quizState.startTime) / 1000);
-    const timeRemaining = Math.max(0, QUIZ_TIME - timeUsed);
-    const isCorrect = selectedIndex === q.correta;
-    const isTimeout = selectedIndex === -1;
-
-    let pointsEarned = 0;
-    if (isCorrect) {
-      const bonus = Math.round((timeRemaining / QUIZ_TIME) * POINTS_TIME_BONUS);
-      pointsEarned = POINTS_PER_CORRECT + bonus;
-      quizState.score += pointsEarned;
+    // B) Click to Reveal Diagnosis
+    const diagCard = document.getElementById("diagnosis-reveal-card");
+    if (diagCard && !isDiagnosisRevealed) {
+      diagCard.addEventListener("click", () => {
+        revealedStates[activeCaseIndex].diagnosis = true;
+        renderDashboard();
+        // Efeito visual no papiro
+        const pContainer = document.getElementById("lab-parchment-container");
+        if (pContainer) pContainer.classList.add("heal-success-flash");
+      });
     }
 
-    quizState.answers.push({ correct: isCorrect, timeUsed, pointsEarned });
-
-    // Atualiza visual das opções
-    const optionBtns = quizContainer.querySelectorAll(".quiz-option");
-    optionBtns.forEach(b => {
-      b.disabled = true;
-      const idx = parseInt(b.getAttribute("data-index"));
-      if (idx === q.correta) b.classList.add("correct");
-      else if (idx === selectedIndex) b.classList.add("incorrect");
-    });
-
-    // Atualiza score badge
-    const scoreBadge = quizContainer.querySelector(".quiz-score-badge");
-    if (scoreBadge) scoreBadge.textContent = `⭐ ${quizState.score} pts`;
-
-    // Feedback
-    const feedbackBox = document.getElementById("quiz-feedback-box");
-    if (feedbackBox) {
-      feedbackBox.style.display = "block";
-      if (isTimeout) {
-        feedbackBox.className = "quiz-feedback timeout";
-        feedbackBox.innerHTML = `
-          <div class="quiz-feedback-title">⏱ Tempo Esgotado!</div>
-          <div class="quiz-feedback-text">${q.explicacao}</div>
-        `;
-      } else if (isCorrect) {
-        feedbackBox.className = "quiz-feedback success";
-        feedbackBox.innerHTML = `
-          <div class="quiz-feedback-title">✅ Correto! +${pointsEarned} pontos ${timeRemaining > 10 ? "⚡ Bônus de velocidade!" : ""}</div>
-          <div class="quiz-feedback-text">${q.explicacao}</div>
-        `;
-      } else {
-        feedbackBox.className = "quiz-feedback error";
-        feedbackBox.innerHTML = `
-          <div class="quiz-feedback-title">❌ Incorreto — 0 pontos</div>
-          <div class="quiz-feedback-text">${q.explicacao}</div>
-        `;
-      }
+    // C) Click to Reveal Antidote
+    const antiCard = document.getElementById("antidote-reveal-card");
+    if (antiCard && !isAntidoteRevealed) {
+      antiCard.addEventListener("click", () => {
+        revealedStates[activeCaseIndex].antidote = true;
+        renderDashboard();
+        // Efeito visual no papiro
+        const pContainer = document.getElementById("lab-parchment-container");
+        if (pContainer) pContainer.classList.add("heal-success-flash");
+      });
     }
 
-    const nextBtn = document.getElementById("quiz-next-btn");
-    if (nextBtn) nextBtn.style.display = "block";
-
-    // Atualiza barra de progresso
-    const bar = document.getElementById("quiz-progress-bar");
-    if (bar) bar.style.width = `${((quizState.index + 1) / DATA.quiz.length) * 100}%`;
-  }
-
-  // ── TELA 3: RESULTADO + RANKING ────────────────────────────────────
-  function renderQuizResults() {
-    if (!quizContainer) return;
-    clearTimerInterval();
-
-    const totalQ = DATA.quiz.length;
-    const correctCount = quizState.answers.filter(a => a.correct).length;
-    const rate = correctCount / totalQ;
-    const maxScore = totalQ * (POINTS_PER_CORRECT + POINTS_TIME_BONUS);
-
-    // Salva no ranking
-    window.quizLeaderboard.push({
-      name: quizState.playerName,
-      score: quizState.score,
-      correct: correctCount,
-      total: totalQ,
-    });
-    // Ordena por pontuação
-    window.quizLeaderboard.sort((a, b) => b.score - a.score);
-
-    // Posição do jogador atual
-    const playerPos = window.quizLeaderboard.findIndex(
-      p => p.name === quizState.playerName && p.score === quizState.score
-    ) + 1;
-
-    let medal = "🎖️"; let grade = "";
-    if (playerPos === 1) { medal = "🥇"; grade = "Líder do Ranking!"; }
-    else if (playerPos === 2) { medal = "🥈"; grade = "Vice-Campeão!"; }
-    else if (playerPos === 3) { medal = "🥉"; grade = "3º Lugar!"; }
-    else if (rate >= 0.75) { grade = "Muito Bom!"; }
-    else { grade = "Continue Estudando!"; }
-
-    let desc = "";
-    if (rate === 1) desc = "Perfeito! Você dominou completamente os ensinamentos da epístola.";
-    else if (rate >= 0.75) desc = "Ótimo desempenho! Você compreendeu bem a centralidade de Cristo na carta.";
-    else if (rate >= 0.5) desc = "Bom esforço! Revise o contexto histórico e o hino cristológico para melhorar.";
-    else desc = "Não desanime! A carta aos Colossenses tem ensinamentos ricos. Tente novamente!";
-
-    // Gera confetti se acertou >= 75%
-    if (rate >= 0.75) launchConfetti();
-
-    const rankingHTML = window.quizLeaderboard.slice(0, 8).map((p, i) => {
-      const isCurrentPlayer = p.name === quizState.playerName && p.score === quizState.score && i === playerPos - 1;
-      const medals = ["🥇","🥈","🥉"];
-      const pos = medals[i] || `${i+1}º`;
-      return `
-        <div class="quiz-rank-row ${isCurrentPlayer ? "quiz-rank-row--current" : ""}">
-          <span class="quiz-rank-pos">${pos}</span>
-          <span class="quiz-rank-name">${escapeHtml(p.name)}</span>
-          <span class="quiz-rank-correct">${p.correct}/${p.total}</span>
-          <span class="quiz-rank-score">${p.score} pts</span>
-        </div>
-      `;
-    }).join("");
-
-    quizContainer.innerHTML = `
-      <div class="quiz-result-card">
-        <div class="quiz-result-medal">${medal}</div>
-        <div class="quiz-result-name">${escapeHtml(quizState.playerName)}</div>
-        <div class="quiz-result-score-big">${quizState.score} <span>pts</span></div>
-        <div class="quiz-result-stats">
-          <div class="quiz-stat-item">
-            <span class="quiz-stat-val">${correctCount}/${totalQ}</span>
-            <span class="quiz-stat-label">Acertos</span>
-          </div>
-          <div class="quiz-stat-item">
-            <span class="quiz-stat-val">${Math.round((quizState.score / maxScore) * 100)}%</span>
-            <span class="quiz-stat-label">Eficiência</span>
-          </div>
-          <div class="quiz-stat-item">
-            <span class="quiz-stat-val">${playerPos}º</span>
-            <span class="quiz-stat-label">Colocação</span>
-          </div>
-        </div>
-        <div class="quiz-result-grade">${grade}</div>
-        <p class="quiz-result-text">${desc}</p>
-      </div>
-
-      <div class="quiz-leaderboard">
-        <div class="quiz-leaderboard-title">🏆 Placar Geral</div>
-        <div class="quiz-leaderboard-list">${rankingHTML}</div>
-      </div>
-
-      <div class="quiz-result-actions">
-        <button id="quiz-restart-btn" class="quiz-action-btn">🔄 Jogar Novamente</button>
-        <button id="quiz-new-player-btn" class="quiz-action-btn quiz-action-btn--secondary">👤 Novo Participante</button>
-      </div>
-    `;
-
-    if (typeof lucide !== "undefined") lucide.createIcons();
-
-    document.getElementById("quiz-restart-btn").addEventListener("click", () => {
-      quizState.index = 0; quizState.score = 0; quizState.answers = [];
-      renderQuizQuestion();
-    });
-    document.getElementById("quiz-new-player-btn").addEventListener("click", () => {
-      renderQuizRegistration();
-    });
-  }
-
-  // ── HELPERS ──────────────────────────────────────────────────────────
-  function clearTimerInterval() {
-    if (quizState.timerInterval) {
-      clearInterval(quizState.timerInterval);
-      quizState.timerInterval = null;
+    // D) Reset Button
+    const resetBtn = document.getElementById("lab-reset-btn");
+    if (resetBtn) {
+      resetBtn.addEventListener("click", () => {
+        revealedStates[activeCaseIndex].diagnosis = false;
+        revealedStates[activeCaseIndex].antidote = false;
+        renderDashboard();
+      });
     }
   }
 
-  function escapeHtml(str) {
-    return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-  }
-
-  function launchConfetti() {
-    const colors = ["#d4af37","#f3e5ab","#ffbf00","#ffffff","#ff6b6b"];
-    for (let i = 0; i < 80; i++) {
-      const el = document.createElement("div");
-      el.style.cssText = `
-        position:fixed; top:-10px;
-        left:${Math.random()*100}vw;
-        width:${6+Math.random()*8}px; height:${6+Math.random()*8}px;
-        background:${colors[Math.floor(Math.random()*colors.length)]};
-        border-radius:${Math.random()>0.5?"50%":"2px"};
-        animation: confetti-fall ${1.5+Math.random()*2}s ease-in forwards;
-        animation-delay:${Math.random()*0.8}s;
-        z-index:9999; pointer-events:none;
-        transform:rotate(${Math.random()*360}deg);
-      `;
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 4000);
-    }
-  }
-
-  // Inicia na tela de registro
-  renderQuizRegistration();
+  // Inicializa o Painel de Diagnóstico
+  renderDashboard();
 
 
   // ==========================================
