@@ -132,7 +132,7 @@ const DATA = {
         "Colossenses 2:20-22",
         "Colossenses 3:1-2"
       ],
-      explicacao: "Paulo argumenta em Colossenses 2:16-17 que as festas, luas novas e sábados eram apenas 'sombras' que apontavam para o que viria. A realidade ('o corpo'), no entanto, pertence a Cristo. Impor tais regras é regredir para as sombras, ignorando que Cristo cumpriu e aboliu essas exigências na cruz."
+      explicacao: "Paulo argumenta em Colossenses 2:16-17 que as festas, luas novas e sábados eram apenas 'sombras' que apontavam para o que viria. A realidade, no entanto, encontra-se em Cristo. Impor tais regras é regredir para as sombras, ignorando que Cristo cumpriu e aboliu essas exigências na cruz."
     },
     {
       id: "caso-02",
@@ -153,7 +153,7 @@ const DATA = {
         "Colossenses 2:18-19",
         "Colossenses 3:5"
       ],
-      explicacao: "Em Colossenses 2:18-19, Paulo condena veementemente quem se apoia em visões místicas extravagantes e no culto aos anjos. Ele adverte que esses ensinos são fruto de uma mente carnal e soberba, e que a igreja deve permanecer firmemente 'ligada à Cabeça', que é Cristo. Só de Cristo provém o verdadeiro crescimento espiritual."
+      explicacao: "Em Colossenses 2:18-19, Paulo condena veementemente quem se apoia em visões místicas extravagantes e na adoração de anjos. Ele adverte que esses ensinos são fruto de uma mente carnal e orgulhosa, e que a igreja deve permanecer firmemente 'unida à Cabeça', que é Cristo. Só de Cristo provém o verdadeiro crescimento espiritual."
     },
     {
       id: "caso-03",
@@ -174,7 +174,7 @@ const DATA = {
         "Colossenses 2:20-23",
         "Colossenses 3:12-13"
       ],
-      explicacao: "Paulo refuta o ascetismo em Colossenses 2:20-23, explicando que essas regras humanas de 'não manuseies, não proves, não toques' têm apenas 'aparência de sabedoria' por causa da devoção voluntária e falsa humildade, mas não têm valor algum contra a satisfação da carne. A verdadeira vitória sobre o pecado vem da união com Cristo em Sua morte e ressurreição, não do castigo físico."
+      explicacao: "Paulo refuta o ascetismo em Colossenses 2:20-23, explicando que essas regras humanas de 'não manuseie, não prove, não toque' têm apenas 'aparência de sabedoria' por causa da pretensa religiosidade, falsa humildade e severidade com o corpo, mas não têm valor algum para refrear os impulsos da carne. A verdadeira vitória sobre o pecado vem da união com Cristo em Sua morte e ressurreição, não do castigo físico."
     },
     {
       id: "caso-04",
@@ -195,38 +195,38 @@ const DATA = {
         "Colossenses 2:16",
         "Colossenses 4:5-6"
       ],
-      explicacao: "Em Colossenses 2:8-9, Paulo nos alerta a ter cuidado para que ninguém nos escravize com filosofias e vãs sutilezas baseadas em tradições humanas e nos rudimentos do mundo, e não em Cristo. Ele estabelece o maior fundamento contra o proto-gnosticismo: 'porque nele habita, corporalmente, toda a plenitude da divindade'. Jesus é plenamente Deus e encarnou de forma real e perfeita."
+      explicacao: "Em Colossenses 2:8-9, Paulo nos alerta a ter cuidado para que ninguém nos escravize a filosofias vãs e enganosas baseadas em tradições humanas e nos princípios elementares deste mundo, e não em Cristo. Ele estabelece o maior fundamento contra o proto-gnosticismo: 'porque nele habita, corporalmente, toda a plenitude da divindade'. Jesus é plenamente Deus e encarnou de forma real e perfeita."
     }
   ],
 
   hino: [
     {
-      verso: "Ele é a imagem do Deus invisível, o primogênito de toda a criação;",
+      verso: "Ele é a imagem do Deus invisível, o primogênito de toda a criação,",
       exegese: "A palavra grega para imagem é 'eikon', que significa representação perfeita e manifestação visível do próprio Deus. 'Primogênito' (prototokos) não significa o primeiro criado no tempo, mas denota supremacia, herança e prioridade de soberania sobre toda a ordem criada, como o herdeiro universal."
     },
     {
-      verso: "pois, nele, foram criadas todas as coisas, nos céus e sobre a terra, as visíveis e as invisíveis...",
+      verso: "pois nele foram criadas todas as coisas, nos céus e na terra, as visíveis e as invisíveis...",
       exegese: "Refuta diretamente o misticismo e as filosofias gnósticas incipientes que ensinavam que o mundo físico foi criado por divindades inferiores (demiurgos) e que o mundo invisível continha intermediários espirituais que exigiam adoração. Paulo coloca Jesus como a fonte direta de toda a criação."
     },
     {
-      verso: "sejam tronos, sejam soberanias, quer principados, quer potestades. Tudo foi criado por meio dele e para ele.",
-      exegese: "Os termos 'tronos', 'soberanias', 'principados' e 'potestades' eram categorias angelicais e espirituais que a heresia colossense tentava cultuar. Paulo rebaixa esses seres espirituais à condição de meros subordinados de Jesus: eles foram criados POR Ele e PARA servir ao Seu propósito divino."
+      verso: "sejam tronos ou soberanias, poderes ou autoridades; todas as coisas foram criadas por ele e para ele.",
+      exegese: "Os termos 'tronos', 'soberanias', 'poderes' e 'autoridades' eram categorias angelicais e espirituais que a heresia colossense tentava cultuar. Paulo rebaixa esses seres espirituais à condição de meros subordinados de Jesus: eles foram criados por Ele e para servir ao Seu propósito divino."
     },
     {
-      verso: "Ele é antes de todas as coisas. Nele, tudo subsiste.",
+      verso: "Ele é antes de todas as coisas, e nele tudo subsiste.",
       exegese: "Jesus possui preexistência eterna (Ele existia antes do universo). Ele também é o sustentador cósmico: 'subsiste' (synesteken) indica que Ele mantém o universo coeso, impedindo-o de cair no caos. O cosmos não é autossuficiente; ele depende continuamente de Cristo."
     },
     {
-      verso: "Ele é a cabeça do corpo, que é a igreja. Ele é o princípio, o primogênito de entre os mortos, para em todas as coisas ter a primazia,",
-      exegese: "Transição da criação física para a nova criação espiritual. Como 'cabeça' (kephale), Jesus é a fonte de vida, direção e autoridade da Igreja. Ele inaugurou a ressurreição ao vencer a morte definitivamente, estabelecendo Sua primazia absoluta em todas as dimensões da existência."
+      verso: "Ele é a cabeça do corpo, que é a igreja; é o princípio e o primogênito dentre os mortos, para que em tudo tenha a supremacia,",
+      exegese: "Transição da criação física para a nova criação espiritual. Como 'cabeça' (kephale), Jesus é a fonte de vida, direção e autoridade da Igreja. Ele inaugurou a ressurreição ao vencer a morte definitivamente, estabelecendo Sua supremacia absoluta em todas as dimensões da existência."
     },
     {
-      verso: "porque aprouve a Deus que nele habitasse toda a plenitude",
+      verso: "Pois foi do agrado de Deus que nele habitasse toda a plenitude,",
       exegese: "A palavra 'plenitude' (pleroma) era um termo técnico usado por falsos mestres para descrever a soma total dos poderes e emanações divinas espalhadas pelo cosmos. Paulo afirma que a divindade não está fragmentada: 100% da plenitude de Deus habita corporalmente em Cristo Jesus."
     },
     {
-      verso: "e que, havendo feito a paz pelo sangue da sua cruz, por meio dele, reconciliasse consigo mesmo todas as coisas...",
-      exegese: "A cruz não foi uma derrota trágica, mas o altar de reconciliação cósmica. O 'sangue da cruz' é o preço físico que restabeleceu a harmonia violada pelo pecado, conectando a humanidade e o universo de volta ao Criador, destruindo a necessidade de rituais ascéticos ou intermediários místicos."
+      verso: "e por meio dele reconciliasse consigo todas as coisas, estabelecendo a paz pelo seu sangue derramado na cruz.",
+      exegese: "A cruz não foi uma derrota trágica, mas o altar de reconciliação cósmica. O 'sangue derramado na cruz' é o preço físico que restabeleceu a harmonia violada pelo pecado, conectando a humanidade e o universo de volta ao Criador, destruindo a necessidade de rituais ascéticos ou intermediários místicos."
     }
   ],
 
@@ -236,28 +236,28 @@ const DATA = {
       problemaColossos: "Sincretismo Religioso: Misturar o Evangelho com filosofias pagãs, misticismo oriental e tradições humanas para 'completar' a fé.",
       equivalenteModerno: "Teologia Sincretista / 'Espiritualidade Fluida': A ideia de que Jesus é bom, mas precisamos de astrologia, coaching quântico, filosofias orientais ou ativismo secular para ter plenitude.",
       solucaoCarta: "Paulo exalta que em Cristo habita a plenitude divina e que os crentes estão completos Nele, não precisando de acréscimos filosóficos ou místicos.",
-      versiculo: "Colossenses 2:8-10 — 'Cuidado que ninguém vos venha a enredar com sua filosofia e vãs sutilezas... porque nele habita, corporalmente, toda a plenitude da divindade. Também, nele, estais aperfeiçoados...'"
+      versiculo: "Colossenses 2:8-10 — 'Tenham cuidado para que ninguém os escravize a filosofias vãs e enganosas... pois em Cristo habita corporalmente toda a plenitude da divindade, e nele vocês receberam a plenitude...'"
     },
     {
       categoria: "Espiritualidade e Misticismo",
       problemaColossos: "Culto aos Anjos e Visões: Uma busca por experiências místicas extravagantes e intermediários espirituais acima do próprio Cristo.",
       equivalenteModerno: "Misticismo Gospel / Hiperespiritualização: Obsessão por revelações extra-bíblicas, anjos, profecias pessoais e experiências emocionais/extravagantes como base da comunhão.",
-      solucaoCarta: "Paulo condena a soberba espiritual de quem se apoia em visões e enfatiza a necessidade de permanecer firmemente 'ligados à Cabeça' que é Cristo, de quem todo o corpo recebe crescimento.",
-      versiculo: "Colossenses 2:18-19 — 'Ninguém vos domine a seu talante, com pretexto de humildade e culto dos anjos, baseando-se em visões, enfatuado sem motivo... e não retendo a Cabeça...'"
+      solucaoCarta: "Paulo condena a soberba espiritual de quem se apoia em visões e enfatiza a necessidade de permanecer firmemente 'unida à Cabeça' que é Cristo, de quem todo o corpo recebe crescimento.",
+      versiculo: "Colossenses 2:18-19 — 'Não permitam que ninguém que tenha prazer numa falsa humildade e na adoração de anjos os impeça de alcançar o prêmio... não estando unida à Cabeça...'"
     },
     {
       categoria: "Prática e Liturgia",
       problemaColossos: "Legalismo Ritualístico: Imposição de regras humanas rígidas sobre comida, bebida, festas e sábados como termômetro de espiritualidade.",
       equivalenteModerno: "Legalismo Eclesiástico / Julgamento Externo: Julgar a comunhão com Deus baseando-se em vestuário, costumes rígidos, restrições alimentares ou agendas ativistas humanas.",
-      solucaoCarta: "Essas ordenanças eram apenas sombras de Cristo. A realidade é Cristo. Paulo liberta a igreja da escravidão de preceitos que têm aparência de sabedoria, mas não têm valor contra a carne.",
-      versiculo: "Colossenses 2:16-17; 23 — 'Ninguém, pois, vos julgue por causa de comida e bebida, ou dia de festa, ou lua nova, ou sábados... Tais coisas têm, de fato, aparência de sabedoria... mas não têm valor algum contra a sensualidade.'"
+      solucaoCarta: "Essas ordenanças eram apenas sombras de Cristo. A realidade é Cristo. Paulo liberta a igreja da escravidão de preceitos que têm aparência de sabedoria, mas não têm valor algum para refrear os impulsos da carne.",
+      versiculo: "Colossenses 2:16-17; 23 — 'Portanto, não permitam que ninguém os julgue pelo que vocês comem ou bebem... Essas regras têm, de fato, aparência de sabedoria... mas não têm valor algum para refrear os impulsos da carne.'"
     },
     {
       categoria: "Comportamento e Estilo de Vida",
       problemaColossos: "Ascetismo e Autonegação: A crença de que castigar o corpo e evitar o mundo físico por completo gera santidade interna.",
       equivalenteModerno: "Moralismo de Aparência / Isolacionismo: A ideia de que a santidade é medida pelo afastamento puritano absoluto da sociedade ou por privações voluntárias impressionantes.",
       solucaoCarta: "A verdadeira santidade é interna e vem da ressurreição com Cristo. Devemos buscar as coisas lá de cima e fazer morrer a natureza terrena no coração, não apenas nas regras externas.",
-      versiculo: "Colossenses 3:1-3; 5 — 'Se fostes ressuscitados juntamente com Cristo, buscai as coisas lá de cima... Pensai nas coisas lá de cima, não nas que são aqui da terra... Fazei, pois, morrer a vossa natureza terrena...'"
+      versiculo: "Colossenses 3:1-3; 5 — 'Portanto, visto que vocês ressuscitaram com Cristo, procurem as coisas do alto... Mantenham o pensamento nas coisas do alto, e não nas coisas terrenas... Assim, façam morrer tudo o que pertence à natureza terrena de vocês...'"
     }
   ],
 
