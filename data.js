@@ -57,7 +57,7 @@ const DATA = {
       localizacao: "Planalto ao sul do rio Lico.",
       distancia: "16 km a oeste de Colossos.",
       referenciaBiblica: "Colossenses 2:1; 4:13-16; Apocalipse 3:14-22",
-      contexto: "O centro administrativo e financeiro do Vale. Conhecida por sua riqueza bancária, escola de medicina e lã preta brilhante. Como não tinha fontes de água próprias, construiu aquedutos para trazer água termal de Hierápolis. Porém, a água corria por km e chegava morna, sedimentada e intragável. Não servia para curar (como a quente de Hierápolis) nem para refrescar (como a fria de Colossos), servindo de metáfora para a mornidão espiritual da igreja local."
+      contexto: "O centro administrativo e financeiro do Vale. Conhecida por sua riqueza bancária, escola de medicina e lã preta brilhante. Como não tinha fontes de água próprias, construiu aquedutos para trazer água termal de Hierápolis. Porém, a água corria por cerca de 10 km e chegava morna, sedimentada e intragável. Não servia para curar (como a quente de Hierápolis) nem para refrescar (como a fria de Colossos), servindo de metáfora para a mornidão espiritual da igreja local."
     },
     {
       id: "hierapolis",
@@ -81,7 +81,7 @@ const DATA = {
       localizacao: "Encosta norte do Vale do Lico, atual Pamukkale.",
       distancia: "Cerca de 9 km ao norte de Laodicéia.",
       referenciaBiblica: "Contexto Físico e Clínico",
-      contexto: "As águas termais de Hierápolis eram ricas em cálcio e outros minerais, brotando da terra em temperaturas elevadas. Elas formavam piscinas naturais onde pessoas de todo o Império buscavam alívio para dores físicas e doenças de pele. Na analogia das águas do Lico, a água quente simboliza cura, restauração e cuidado active — outra forma de utilidade eclesiástica que faltava a Laodicéia."
+      contexto: "As águas termais de Hierápolis eram ricas em cálcio e outros minerais, brotando da terra em temperaturas elevadas. Elas formavam piscinas naturais onde pessoas de todo o Império buscavam alívio para dores físicas e doenças de pele. Na analogia das águas do Lico, a água quente simboliza cura, restauração e cuidado ativo — outra forma de utilidade eclesiástica que faltava a Laodicéia."
     }
   ],
 
