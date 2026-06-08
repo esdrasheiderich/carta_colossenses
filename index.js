@@ -32,7 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Executa lógicas específicas de abas, se necessário
-    if (tabId === "mapa") {
+    if (tabId === "inicio") {
+      triggerInicioReveal();
+      animateStats();
+    } else if (tabId === "mapa") {
       const defaultPin = document.getElementById("pin-colossos");
       if (defaultPin) {
         defaultPin.dispatchEvent(new Event("click"));
@@ -670,4 +673,100 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   renderTeam();
+
+  // ==========================================
+  // 9. DINAMIZAÇÃO DA PÁGINA INICIAL (INÍCIO)
+  // ==========================================
+  function triggerInicioReveal() {
+    const revealItems = document.querySelectorAll("#tab-inicio .reveal-item");
+    revealItems.forEach(item => {
+      item.classList.remove("revealed");
+      void item.offsetWidth; // Force reflow
+      item.classList.add("revealed");
+    });
+  }
+
+  function animateStats() {
+    const statNums = document.querySelectorAll("#tab-inicio .stat-num");
+    statNums.forEach(stat => {
+      const target = parseInt(stat.getAttribute("data-target"), 10);
+      if (isNaN(target)) return;
+
+      stat.textContent = "0";
+      
+      const duration = 1200; // ms
+      const startTime = performance.now();
+      
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing out cubic: f(t) = 1 - (1-t)^3
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.floor(easeProgress * target);
+        
+        stat.textContent = currentValue;
+        
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          stat.textContent = target;
+        }
+      }
+      
+      setTimeout(() => {
+        requestAnimationFrame(update);
+      }, 300);
+    });
+  }
+
+  function init3DTilt() {
+    const cards = document.querySelectorAll(".feature-card");
+    
+    cards.forEach(card => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const w = rect.width;
+        const h = rect.height;
+        const dx = (x / w) - 0.5;
+        const dy = (y / h) - 0.5;
+        
+        const maxRot = 10; 
+        const rx = -dy * maxRot;
+        const ry = dx * maxRot;
+        
+        card.style.setProperty("--rx", `${rx.toFixed(2)}deg`);
+        card.style.setProperty("--ry", `${ry.toFixed(2)}deg`);
+        card.style.setProperty("--mx", `${x}px`);
+        card.style.setProperty("--my", `${y}px`);
+        
+        card.style.transition = "border-color 0.35s ease, box-shadow 0.35s ease, transform 0.05s ease";
+      });
+      
+      card.addEventListener("mouseleave", () => {
+        card.style.setProperty("--rx", "0deg");
+        card.style.setProperty("--ry", "0deg");
+        card.style.transition = "border-color 0.35s ease, box-shadow 0.35s ease, transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)";
+      });
+      
+      card.addEventListener("mouseenter", () => {
+        card.style.transition = "border-color 0.35s ease, box-shadow 0.35s ease, transform 0.15s ease";
+      });
+    });
+  }
+
+  // Inicializa os efeitos da página inicial
+  triggerInicioReveal();
+  animateStats();
+  init3DTilt();
+
+  // Vídeo de fundo
+  const bgVideo = document.getElementById("bg-video");
+  if (bgVideo) {
+    bgVideo.src = "assets/Colossos.mp4";
+    bgVideo.load();
+    bgVideo.play().catch(e => console.log("Autoplay do vídeo bloqueado pelo navegador:", e));
+  }
 });

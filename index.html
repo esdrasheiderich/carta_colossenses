@@ -12,6 +12,12 @@
 </head>
 <body>
 
+  <!-- Background Video -->
+  <div class="video-bg-container">
+    <video autoplay loop muted playsinline class="video-bg" aria-hidden="true" id="bg-video"></video>
+    <div class="video-bg-overlay"></div>
+  </div>
+
   <div class="app-container">
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
@@ -68,31 +74,33 @@
       <section id="tab-inicio" class="tab-pane active">
         <div class="hero-section">
           <div class="hero-text">
-            <span class="hero-subtitle">Epístolas Paulinas</span>
-            <h2 class="hero-title">A Supremacia e Suficiência de <span class="text-gold text-glow">Cristo</span></h2>
-            <p class="hero-desc">Um mergulho teológico, arqueológico e histórico na Carta aos Colossenses. Conectando a heresia combatida no século I com os dilemas e desafios das comunidades eclesiais contemporâneas.</p>
+            <span class="hero-subtitle reveal-item delay-1">Epístolas Paulinas</span>
+            <h2 class="hero-title reveal-item delay-2">A Supremacia e Suficiência de <span class="text-gold text-glow">Cristo</span></h2>
+            <p class="hero-desc reveal-item delay-3">Um mergulho teológico, arqueológico e histórico na Carta aos Colossenses. Conectando a heresia combatida no século I com os dilemas e desafios das comunidades eclesiais contemporâneas.</p>
             
-            <div class="hero-stats">
+            <div class="hero-stats reveal-item delay-4">
               <div class="stat-item">
-                <span class="stat-num">4</span>
+                <span class="stat-num" data-target="4">4</span>
                 <span class="stat-label">Capítulos</span>
               </div>
               <div class="stat-item">
-                <span class="stat-num">95</span>
+                <span class="stat-num" data-target="95">95</span>
                 <span class="stat-label">Versículos</span>
               </div>
               <div class="stat-item">
-                <span class="stat-num">62 d.C.</span>
+                <span class="stat-num" data-target="62">62</span><span class="stat-num-suffix"> d.C.</span>
                 <span class="stat-label">Escrita</span>
               </div>
             </div>
           </div>
-          <div class="hero-image">
-            <img src="assets/lycus_valley.png" alt="Vale do Lico">
+          <div class="hero-image reveal-item delay-5">
+            <video autoplay loop muted playsinline>
+              <source src="assets/Colossos.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
 
-        <div class="features-grid">
+        <div class="features-grid reveal-item delay-6">
           <div class="glass-card feature-card" data-target-tab="historia">
             <i data-lucide="landmark"></i>
             <h3>Arqueologia & Contexto</h3>
