@@ -101,20 +101,25 @@
         </div>
 
         <div class="features-grid reveal-item delay-6">
-          <div class="glass-card feature-card" data-target-tab="historia">
-            <i data-lucide="landmark"></i>
-            <h3>Arqueologia & Contexto</h3>
-            <p>Descubra a história da antiga cidade de Colossos e as curiosidades arqueológicas do Vale do Lico através de fatos e fotos.</p>
+          <div class="glass-card feature-card" data-target-tab="mapa">
+            <i data-lucide="map"></i>
+            <h3>Cartografia do Lico</h3>
+            <p>Navegue pelo mapa geográfico interativo e compreenda a dinâmica das águas frias, quentes e mornas na região.</p>
+          </div>
+          <div class="glass-card feature-card" data-target-tab="timeline">
+            <i data-lucide="clock"></i>
+            <h3>Linha do Tempo</h3>
+            <p>Acompanhe a cronologia histórica desde o ministério em Éfeso até o envio da carta enquanto Paulo estava preso em Roma.</p>
           </div>
           <div class="glass-card feature-card" data-target-tab="quiz">
             <i data-lucide="brain-circuit"></i>
             <h3>Laboratório de Apologética</h3>
-            <p>Identifique e combata os desvios teológicos de Colossos diagnosticando casos práticos no Laboratório de Apologética.</p>
+            <p>Identificando e combatendo os desvios teológicos de Colossos com casos práticos e respostas bíblicas.</p>
           </div>
-          <div class="glass-card feature-card" data-target-tab="hino">
-            <i data-lucide="award"></i>
-            <h3>Supremacia de Cristo</h3>
-            <p>Explore o majestoso hino cristológico de Colossenses 1:15-20 com análises exegéticas detalhadas e versículo por versículo.</p>
+          <div class="glass-card feature-card" data-target-tab="aplicacao">
+            <i data-lucide="git-pull-request"></i>
+            <h3>Aplicações e Conexões Eclesiológicas</h3>
+            <p>Trazendo a mensagem de Colossenses do século I para a realidade e desafios das igrejas do século XXI.</p>
           </div>
         </div>
       </section>
@@ -263,7 +268,7 @@
 
                 <!-- Cidades Secundárias (Estáticas) -->
                 <g class="map-secondary-cities">
-                  <g class="map-city-static" transform="translate(90, 70)">
+                  <g class="map-city-static" transform="translate(90, 40)">
                     <circle cx="0" cy="0" r="4" />
                     <text x="8" y="3">Pérgamo [Bergama]</text>
                   </g>
@@ -271,11 +276,11 @@
                     <circle cx="0" cy="0" r="4" />
                     <text x="8" y="3">Esmirna [Izmir]</text>
                   </g>
-                  <g class="map-city-static" transform="translate(200, 120)">
+                  <g class="map-city-static" transform="translate(200, 80)">
                     <circle cx="0" cy="0" r="4" />
                     <text x="8" y="3">Tiatira [Akhisar]</text>
                   </g>
-                  <g class="map-city-static" transform="translate(280, 200)">
+                  <g class="map-city-static" transform="translate(280, 110)">
                     <circle cx="0" cy="0" r="4" />
                     <text x="8" y="3">Sardes [Sart]</text>
                   </g>
@@ -283,7 +288,7 @@
                     <circle cx="0" cy="0" r="4" />
                     <text x="8" y="-5">Mileto [Milet]</text>
                   </g>
-                  <g class="map-city-static" transform="translate(390, 240)">
+                  <g class="map-city-static" transform="translate(390, 150)">
                     <circle cx="0" cy="0" r="4" />
                     <text x="8" y="3">Filadélfia [Alaşehir]</text>
                   </g>
@@ -352,7 +357,7 @@
                 </g>
 
                 <!-- Rosa dos Ventos (Fixo fora do zoom) -->
-                <g class="compass-rose" transform="translate(100, 100)">
+                <g class="compass-rose" transform="translate(820, 80)">
                   <circle cx="0" cy="0" r="30" fill="none" stroke="#8a5a2b" stroke-width="1.2" stroke-dasharray="2 3" />
                   <circle cx="0" cy="0" r="24" fill="none" stroke="#8a5a2b" stroke-width="0.8" />
                   <polygon points="0,0 -5,-8 0,-32 5,-8" fill="#8a5a2b" />
@@ -369,37 +374,6 @@
                   <text x="-39" y="4" font-family="'Georgia', serif" font-weight="bold" font-size="11" fill="#5a381b" text-anchor="middle">O</text>
                 </g>
 
-                <!-- Cartouche / Legenda Interna (Fixo fora do zoom) -->
-                <g class="map-cartouche" transform="translate(680, 20)">
-                  <rect x="0" y="0" width="200" height="180" rx="8" fill="#fcf6e8" stroke="#8a5a2b" stroke-width="1.5" filter="url(#shadow)" />
-                  <text x="100" y="24" font-family="'Georgia', serif" font-weight="bold" font-size="12" fill="#5a381b" text-anchor="middle" letter-spacing="1.5">LEGENDA DO VALE</text>
-                  <line x1="20" y1="32" x2="180" y2="32" stroke="#8a5a2b" stroke-dasharray="1 3" />
-                  
-                  <!-- Cidade Interativa -->
-                  <circle cx="30" cy="50" r="5" fill="#fcf6e8" stroke="#a03010" stroke-width="2" />
-                  <circle cx="30" cy="50" r="9" fill="none" stroke="#d4af37" stroke-dasharray="2 2" />
-                  <text x="48" y="53" font-family="'Outfit', sans-serif" font-size="10" fill="#5a381b">Cidade Interativa</text>
-                  
-                  <!-- Cidade Secundária -->
-                  <circle cx="30" cy="72" r="4" fill="#5a3820" stroke="rgba(90, 60, 20, 0.3)" />
-                  <text x="48" y="75" font-family="'Outfit', sans-serif" font-size="10" fill="#5a381b">Cidade da Província</text>
-                  
-                  <!-- Estrada de Éfeso -->
-                  <line x1="15" y1="94" x2="42" y2="94" stroke="#b89d40" stroke-width="1.8" stroke-dasharray="3,2" />
-                  <text x="48" y="97" font-family="'Outfit', sans-serif" font-size="10" fill="#5a381b">Estrada de Éfeso (Comercial)</text>
-                  
-                  <!-- Rios -->
-                  <path d="M 15 116 Q 28 112, 42 120" fill="none" stroke="#2980b9" stroke-width="1.8" />
-                  <text x="48" y="119" font-family="'Outfit', sans-serif" font-size="10" fill="#5a381b">Rios Meandro e Lico</text>
-                  
-                  <!-- Água Quente -->
-                  <path d="M 15 138 H 40" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" marker-end="url(#arrow-hot-legend)" />
-                  <text x="48" y="141" font-family="'Outfit', sans-serif" font-size="10" fill="#5a381b">Água Quente (Cura)</text>
-                  
-                  <!-- Água Fria -->
-                  <path d="M 15 160 H 40" fill="none" stroke="#3498db" stroke-width="2" stroke-dasharray="3,2" marker-end="url(#arrow-cold-legend)" />
-                  <text x="48" y="163" font-family="'Outfit', sans-serif" font-size="10" fill="#5a381b">Água Fria (Refrigério)</text>
-                </g>
               </svg>
             </div>
           </div>
@@ -409,6 +383,36 @@
               <i data-lucide="map"></i>
               <h3>Selecione uma Cidade</h3>
               <p>Clique ou passe o mouse nos pontos interativos do mapa para ler os dados históricos e geográficos da região.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legenda do Mapa Externa (HTML) -->
+        <div class="glass-card map-legend-card">
+          <div class="map-legend-external">
+            <div class="legend-item">
+              <span class="legend-dot interactive"></span>
+              <span>Cidade Interativa</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot static"></span>
+              <span>Cidade da Província</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-line road-trade"></span>
+              <span>Estrada de Éfeso (Comercial)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-line river"></span>
+              <span>Rios Meandro e Lico</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-line flow-hot"></span>
+              <span>Água Quente (Cura)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-line flow-cold"></span>
+              <span>Água Fria (Refrigério)</span>
             </div>
           </div>
         </div>
@@ -507,14 +511,6 @@
         </div>
         
         <div class="applications-layout">
-          <div class="filter-bar" id="category-filter-bar">
-            <button class="filter-btn active" data-filter="all">Todas as Categorias</button>
-            <button class="filter-btn" data-filter="Teologia e Doutrina">Teologia e Doutrina</button>
-            <button class="filter-btn" data-filter="Espiritualidade e Misticismo">Espiritualidade e Misticismo</button>
-            <button class="filter-btn" data-filter="Prática e Liturgia">Prática e Liturgia</button>
-            <button class="filter-btn" data-filter="Comportamento e Estilo de Vida">Comportamento e Estilo de Vida</button>
-          </div>
-
           <div class="matrix-grid" id="matrix-container">
             <!-- Gerado dinamicamente via JS -->
           </div>

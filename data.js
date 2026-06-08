@@ -81,7 +81,7 @@ const DATA = {
       localizacao: "Encosta norte do Vale do Lico, atual Pamukkale.",
       distancia: "Cerca de 9 km ao norte de Laodicéia.",
       referenciaBiblica: "Contexto Físico e Clínico",
-      contexto: "As águas termais de Hierápolis eram ricas em cálcio e outros minerais, brotando da terra em temperaturas elevadas. Elas formavam piscinas naturais onde pessoas de todo o Império buscavam alívio para dores físicas e doenças de pele. Na analogia das águas do Lico, a água quente simboliza cura, restauração e cuidado ativo — outra forma de utilidade eclesiástica que faltava a Laodicéia."
+      contexto: "As águas termais de Hierápolis eram ricas em cálcio e outros minerais, brotando da terra em temperaturas elevadas. Elas formavam piscinas naturais onde pessoas de todo o Império buscavam alívio para dores físicas e doenças de pele. Na analogia das águas do Lico, a água quente simboliza cura, restauração e cuidado ativo, outra forma de utilidade eclesiástica que faltava a Laodicéia."
     }
   ],
 

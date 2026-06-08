@@ -152,15 +152,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateMapTransform() {
     if (!zoomGroup) return;
     
-    // Limita o pan para não arrastar o mapa fora da tela visível
+    // Limita o pan para não arrastar o mapa fora da tela visível (viewBox 0 0 900 550)
     if (zoomLevel === 1.0) {
       panX = 0;
       panY = 0;
     } else {
-      const maxPanX = (zoomLevel - 1) * 450;
-      const maxPanY = (zoomLevel - 1) * 275;
-      panX = Math.max(-maxPanX, Math.min(maxPanX, panX));
-      panY = Math.max(-maxPanY, Math.min(maxPanY, panY));
+      const minPanX = 900 * (1 - zoomLevel);
+      const minPanY = 550 * (1 - zoomLevel);
+      panX = Math.max(minPanX, Math.min(0, panX));
+      panY = Math.max(minPanY, Math.min(0, panY));
     }
     
     zoomGroup.setAttribute("transform", `translate(${panX}, ${panY}) scale(${zoomLevel})`);
@@ -473,12 +473,6 @@ document.addEventListener("DOMContentLoaded", () => {
           ${antidoteHtml}
         </div>
       </div>
-
-      <div class="lab-reset-container">
-        <button class="lab-reset-btn" id="lab-reset-btn">
-          <i data-lucide="refresh-cw"></i> Ocultar Respostas
-        </button>
-      </div>
     `;
 
     // Inicializa ícones do Lucide após renderizar
@@ -518,16 +512,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Efeito visual no papiro
         const pContainer = document.getElementById("lab-parchment-container");
         if (pContainer) pContainer.classList.add("heal-success-flash");
-      });
-    }
-
-    // D) Reset Button
-    const resetBtn = document.getElementById("lab-reset-btn");
-    if (resetBtn) {
-      resetBtn.addEventListener("click", () => {
-        revealedStates[activeCaseIndex].diagnosis = false;
-        revealedStates[activeCaseIndex].antidote = false;
-        renderDashboard();
       });
     }
   }
@@ -589,17 +573,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // 7. MATRIZ DE CONEXÕES ECLESIAIS (APLICAÇÕES)
   // ==========================================
   const matrixContainer = document.getElementById("matrix-container");
-  const filterBtns = document.querySelectorAll("#category-filter-bar .filter-btn");
 
-  function renderMatrix(filterCategory = "all") {
+  function renderMatrix() {
     if (!matrixContainer) return;
     matrixContainer.innerHTML = "";
 
-    const items = filterCategory === "all" 
-      ? DATA.matriz 
-      : DATA.matriz.filter(m => m.categoria === filterCategory);
-
-    items.forEach(item => {
+    DATA.matriz.forEach(item => {
       const card = document.createElement("div");
       card.className = "glass-card matrix-card";
       card.innerHTML = `
@@ -637,16 +616,6 @@ document.addEventListener("DOMContentLoaded", () => {
       lucide.createIcons();
     }
   }
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filterBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      
-      const filterValue = btn.getAttribute("data-filter");
-      renderMatrix(filterValue);
-    });
-  });
 
   renderMatrix();
 
