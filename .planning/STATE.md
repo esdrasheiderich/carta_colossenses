@@ -83,6 +83,7 @@ None yet.
 | Slug | Date | Description | Status |
 |------|------|-------------|--------|
 | ajustar-versiculos-hino | 2026-06-09 | Corrigir mapeamento dos versículos do hino de Colossenses 1:15-20 | complete ✓ |
+| formatar-texto-destaques | 2026-06-09 | Substituir termos entre aspas simples por negrito e termos estrangeiros por itálico | complete ✓ |
 
 ## Session Continuity
 

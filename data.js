@@ -5,7 +5,7 @@ const DATA = {
       id: "cur-01",
       titulo: "O Monte não Escavado",
       resumo: "Colossos é uma das poucas cidades bíblicas de grande importância que ainda não foi escavada sistematicamente.",
-      detalhes: "O local arqueológico de Colossos hoje é um 'tell' (mound/colina artificial) inexplorado situado no Vale do Lico, na atual Turquia. Embora saibamos sua localização exata, nenhuma grande campanha arqueológica moderna foi realizada ali. Isso se deve, em parte, à proximidade de Hierápolis e Laodicéia, que possuem ruínas muito mais visíveis e imponentes na superfície. Escavações futuras no local prometem revelar tesouros inestimáveis sobre o período helenista e o início do cristianismo.",
+      detalhes: "O local arqueológico de Colossos hoje é um <strong><i>tell</i></strong> (<i>mound</i>/colina artificial) inexplorado situado no Vale do Lico, na atual Turquia. Embora saibamos sua localização exata, nenhuma grande campanha arqueológica moderna foi realizada ali. Isso se deve, em parte, à proximidade de Hierápolis e Laodicéia, que possuem ruínas muito mais visíveis e imponentes na superfície. Escavações futuras no local prometem revelar tesouros inestimáveis sobre o período helenista e o início do cristianismo.",
       imagem: "assets/colossae_tell.png",
       categoria: "Arqueologia"
     },
@@ -13,7 +13,7 @@ const DATA = {
       id: "cur-02",
       titulo: "A Importância da Lã Colossense",
       resumo: "A cidade era famosa mundialmente na antiguidade por um tipo especial de lã tingida de cor púrpura/violeta.",
-      detalhes: "Colossos era famosa por sua indústria têxtil, especialmente pela lã 'colossiana' (colossinus), que possuía uma cor púrpura escura ou violeta única, obtida através de técnicas locais de tingimento utilizando fontes minerais e vegetais do Vale do Lico. Essa reputação comercial gerava grande fluxo de mercadores e riquezas, tornando a cidade um polo multicultural onde ideias religiosas do Oriente e do Ocidente se misturavam constantemente.",
+      detalhes: "Colossos era famosa por sua indústria têxtil, especialmente pela lã <strong>colossiana</strong> (<i>colossinus</i>), que possuía uma cor púrpura escura ou violeta única, obtida através de técnicas locais de tingimento utilizando fontes minerais e vegetais do Vale do Lico. Essa reputação comercial gerava grande fluxo de mercadores e riquezas, tornando a cidade um polo multicultural onde ideias religiosas do Oriente e do Ocidente se misturavam constantemente.",
       imagem: "assets/ancient_coins.png",
       categoria: "Economia e Sociedade"
     },
@@ -29,7 +29,7 @@ const DATA = {
       id: "cur-04",
       titulo: "Epafras: O Fundador Local",
       resumo: "Paulo não fundou pessoalmente a igreja em Colossos; ela nasceu através do trabalho de Epafras.",
-      detalhes: "Apesar de ser uma 'Epístola Paulina', Paulo deixa claro que nunca visitou pessoalmente as igrejas do Vale do Lico (Colossenses 2:1). O fundador da comunidade local foi Epafras, provavelmente um colossense convertido pelo ministério de Paulo em Éfeso (durante a viagem de 3 anos de Paulo descrita em Atos 19). Epafras viajou até Roma para visitar Paulo na prisão e relatar a situação da igreja, especialmente os perigos da heresia que começava a infiltrar-se na comunidade (Col 1:7-8; 4:12-13).",
+      detalhes: "Apesar de ser uma <strong>Epístola Paulina</strong>, Paulo deixa claro que nunca visitou pessoalmente as igrejas do Vale do Lico (Colossenses 2:1). O fundador da comunidade local foi Epafras, provavelmente um colossense convertido pelo ministério de Paulo em Éfeso (durante a viagem de 3 anos de Paulo descrita em Atos 19). Epafras viajou até Roma para visitar Paulo na prisão e relatar a situação da igreja, especialmente os perigos da heresia que começava a infiltrar-se na comunidade (Col 1:7-8; 4:12-13).",
       imagem: "assets/epafras.png",
       categoria: "História Bíblica"
     }
@@ -37,7 +37,7 @@ const DATA = {
   cidades: [
     {
       id: "efeso",
-      nome: "Éfeso (Ephesus)",
+      nome: "Éfeso (<i>Ephesus</i>)",
       localizacao: "Costa oeste da Ásia Menor (atual Turquia), na foz do rio Caíster.",
       distancia: "Fica a cerca de 180 km a oeste de Colossos.",
       referenciaBiblica: "Atos 19; Efésios; Apocalipse 2:1-7",
@@ -65,11 +65,11 @@ const DATA = {
       localizacao: "Encosta norte do Vale do Lico.",
       distancia: "Aproximadamente 25 km a noroeste de Colossos.",
       referenciaBiblica: "Colossenses 4:13",
-      contexto: "Famosa por suas fontes termais calcárias brancas (Pamukkale) e pelo 'Plutonium' (santuário pagão). Suas águas termais brotavam quentes e eram mundialmente conhecidas por propriedades terapêuticas e de cura. Essa água quente e medicinal representa uma utilidade eclesial curativa, em oposição à água fria e revigorante de Colossos."
+      contexto: "Famosa por suas fontes termais calcárias brancas (<i>Pamukkale</i>) e pelo <strong><i>Plutonium</i></strong> (santuário pagão). Suas águas termais brotavam quentes e eram mundialmente conhecidas por propriedades terapêuticas e de cura. Essa água quente e medicinal representa uma utilidade eclesial curativa, em oposição à água fria e revigorante de Colossos."
     },
     {
       id: "monte_cadmo",
-      nome: "Monte Cadmo (Honaz Dağı)",
+      nome: "Monte Cadmo (<i>Honaz Dağı</i>)",
       localizacao: "Cordilheira ao sul de Colossos, erguendo-se a mais de 2.500m.",
       distancia: "Paredão montanhoso diretamente ao sul da cidade de Colossos.",
       referenciaBiblica: "Contexto Físico e Geográfico",
@@ -78,7 +78,7 @@ const DATA = {
     {
       id: "fontes_quentes",
       nome: "Fontes Termais de Hierápolis",
-      localizacao: "Encosta norte do Vale do Lico, atual Pamukkale.",
+      localizacao: "Encosta norte do Vale do Lico, atual <i>Pamukkale</i>.",
       distancia: "Cerca de 9 km ao norte de Laodicéia.",
       referenciaBiblica: "Contexto Físico e Clínico",
       contexto: "As águas termais de Hierápolis eram ricas em cálcio e outros minerais, brotando da terra em temperaturas elevadas. Elas formavam piscinas naturais onde pessoas de todo o Império buscavam alívio para dores físicas e doenças de pele. Na analogia das águas do Lico, a água quente simboliza cura, restauração e cuidado ativo, outra forma de utilidade eclesiástica que faltava a Laodicéia."
@@ -203,68 +203,68 @@ const DATA = {
     {
       versiculo: "15",
       verso: "Ele é a imagem do Deus invisível, o primogênito de toda a criação,",
-      exegese: "A palavra grega para imagem é 'eikon', que significa representação perfeita e manifestação visível do próprio Deus. 'Primogênito' (prototokos) não significa o primeiro criado no tempo, mas denota supremacia, herança e prioridade de soberania sobre toda a ordem criada, como o herdeiro universal."
+      exegese: "A palavra grega para imagem é <strong><i>eikon</i></strong>, que significa representação perfeita e manifestação visível do próprio Deus. <strong>Primogênito</strong> (<i>prototokos</i>) não significa o primeiro criado no tempo, mas denota supremacia, herança e prioridade de soberania sobre toda a ordem criada, como o herdeiro universal."
     },
     {
       versiculo: "16a",
       verso: "pois nele foram criadas todas as coisas, nos céus e na terra, as visíveis e as invisíveis...",
-      exegese: "Refuta diretamente o misticismo e as filosofias gnósticas incipientes que ensinavam que o mundo físico foi criado por divindades inferiores (demiurgos) e que o mundo invisível continha intermediários espirituais que exigiam adoração. Paulo coloca Jesus como a fonte direta de toda a criação."
+      exegese: "Refuta diretamente o misticismo e as filosofias gnósticas incipientes que ensinavam que o mundo físico foi criado por divindades inferiores (<i>demiurgos</i>) e que o mundo invisível continha intermediários espirituais que exigiam adoração. Paulo coloca Jesus como a fonte direta de toda a criação."
     },
     {
       versiculo: "16b",
       verso: "sejam tronos ou soberanias, poderes ou autoridades; todas as coisas foram criadas por ele e para ele.",
-      exegese: "Os termos 'tronos', 'soberanias', 'poderes' e 'autoridades' eram categorias angelicais e espirituais que a heresia colossense tentava cultuar. Paulo rebaixa esses seres espirituais à condição de meros subordinados de Jesus: eles foram criados por Ele e para servir ao Seu propósito divino."
+      exegese: "Os termos <strong>tronos</strong>, <strong>soberanias</strong>, <strong>poderes</strong> e <strong>autoridades</strong> eram categorias angelicais e espirituais que a heresia colossense tentava cultuar. Paulo rebaixa esses seres espirituais à condição de meros subordinados de Jesus: eles foram criados por Ele e para servir ao Seu propósito divino."
     },
     {
       versiculo: "17",
       verso: "Ele é antes de todas as coisas, e nele tudo subsiste.",
-      exegese: "Jesus possui preexistência eterna (Ele existia antes do universo). Ele também é o sustentador cósmico: 'subsiste' (synesteken) indica que Ele mantém o universo coeso, impedindo-o de cair no caos. O cosmos não é autossuficiente; ele depende continuamente de Cristo."
+      exegese: "Jesus possui preexistência eterna (Ele existia antes do universo). Ele também é o sustentador cósmico: <strong>subsiste</strong> (<i>synesteken</i>) indica que Ele mantém o universo coeso, impedindo-o de cair no caos. O cosmos não é autossuficiente; ele depende continuamente de Cristo."
     },
     {
       versiculo: "18",
       verso: "Ele é a cabeça do corpo, que é a igreja; é o princípio e o primogênito dentre os mortos, para que em tudo tenha a supremacia,",
-      exegese: "Transição da criação física para a nova criação espiritual. Como 'cabeça' (kephale), Jesus é a fonte de vida, direção e autoridade da Igreja. Ele inaugurou a ressurreição ao vencer a morte definitivamente, estabelecendo Sua supremacia absoluta em todas as dimensões da existência."
+      exegese: "Transição da criação física para a nova criação espiritual. Como <strong>cabeça</strong> (<i>kephale</i>), Jesus é a fonte de vida, direção e autoridade da Igreja. Ele inaugurou a ressurreição ao vencer a morte definitivamente, estabelecendo Sua supremacia absoluta em todas as dimensões da existência."
     },
     {
       versiculo: "19",
       verso: "Pois foi do agrado de Deus que nele habitasse toda a plenitude,",
-      exegese: "A palavra 'plenitude' (pleroma) era um termo técnico usado por falsos mestres para descrever a soma total dos poderes e emanações divinas espalhadas pelo cosmos. Paulo afirma que a divindade não está fragmentada: 100% da plenitude de Deus habita corporalmente em Cristo Jesus."
+      exegese: "A palavra <strong>plenitude</strong> (<i>pleroma</i>) era um termo técnico usado por falsos mestres para descrever a soma total dos poderes e emanações divinas espalhadas pelo cosmos. Paulo afirma que a divindade não está fragmentada: 100% da plenitude de Deus habita corporalmente em Cristo Jesus."
     },
     {
       versiculo: "20",
       verso: "e por meio dele reconciliasse consigo todas as coisas, estabelecendo a paz pelo seu sangue derramado na cruz.",
-      exegese: "A cruz não foi uma derrota trágica, mas o altar de reconciliação cósmica. O 'sangue derramado na cruz' é o preço físico que restabeleceu a harmonia violada pelo pecado, conectando a humanidade e o universo de volta ao Criador, destruindo a necessidade de rituais ascéticos ou intermediários místicos."
+      exegese: "A cruz não foi uma derrota trágica, mas o altar de reconciliação cósmica. O <strong>sangue derramado na cruz</strong> é o preço físico que restabeleceu a harmonia violada pelo pecado, conectando a humanidade e o universo de volta ao Criador, destruindo a necessidade de rituais ascéticos ou intermediários místicos."
     }
   ],
 
   matriz: [
     {
       categoria: "Teologia e Doutrina",
-      problemaColossos: "Sincretismo Religioso: Misturar o Evangelho com filosofias pagãs, misticismo oriental e tradições humanas para 'completar' a fé.",
-      equivalenteModerno: "Teologia Sincretista / 'Espiritualidade Fluida': A ideia de que Jesus é bom, mas precisamos de astrologia, coaching quântico, filosofias orientais ou ativismo secular para ter plenitude.",
+      problemaColossos: "Sincretismo Religioso: Misturar o Evangelho com filosofias pagãs, misticismo oriental e tradições humanas para <strong>completar</strong> a fé.",
+      equivalenteModerno: "Teologia Sincretista / <strong>Espiritualidade Fluida</strong>: A ideia de que Jesus é bom, mas precisamos de astrologia, coaching quântico, filosofias orientais ou ativismo secular para ter plenitude.",
       solucaoCarta: "Paulo exalta que em Cristo habita a plenitude divina e que os crentes estão completos Nele, não precisando de acréscimos filosóficos ou místicos.",
-      versiculo: "Colossenses 2:8-10 — 'Tenham cuidado para que ninguém os escravize a filosofias vãs e enganosas... pois em Cristo habita corporalmente toda a plenitude da divindade, e nele vocês receberam a plenitude...'"
+      versiculo: "Colossenses 2:8-10 — <strong>Tenham cuidado para que ninguém os escravize a filosofias vãs e enganosas... pois em Cristo habita corporalmente toda a plenitude da divindade, e nele vocês receberam a plenitude...</strong>"
     },
     {
       categoria: "Espiritualidade e Misticismo",
       problemaColossos: "Culto aos Anjos e Visões: Uma busca por experiências místicas extravagantes e intermediários espirituais acima do próprio Cristo.",
       equivalenteModerno: "Misticismo Gospel / Hiperespiritualização: Obsessão por revelações extra-bíblicas, anjos, profecias pessoais e experiências emocionais/extravagantes como base da comunhão.",
-      solucaoCarta: "Paulo condena a soberba espiritual de quem se apoia em visões e enfatiza a necessidade de permanecer firmemente 'unida à Cabeça' que é Cristo, de quem todo o corpo recebe crescimento.",
-      versiculo: "Colossenses 2:18-19 — 'Não permitam que ninguém que tenha prazer numa falsa humildade e na adoração de anjos os impeça de alcançar o prêmio... não estando unida à Cabeça...'"
+      solucaoCarta: "Paulo condena a soberba espiritual de quem se apoia em visões e enfatiza a necessidade de permanecer firmemente <strong>unida à Cabeça</strong> que é Cristo, de quem todo o corpo recebe crescimento.",
+      versiculo: "Colossenses 2:18-19 — <strong>Não permitam que ninguém que tenha prazer numa falsa humildade e na adoração de anjos os impeça de alcançar o prêmio... não estando unida à Cabeça...</strong>"
     },
     {
       categoria: "Prática e Liturgia",
       problemaColossos: "Legalismo Ritualístico: Imposição de regras humanas rígidas sobre comida, bebida, festas e sábados como termômetro de espiritualidade.",
       equivalenteModerno: "Legalismo Eclesiástico / Julgamento Externo: Julgar a comunhão com Deus baseando-se em vestuário, costumes rígidos, restrições alimentares ou agendas ativistas humanas.",
       solucaoCarta: "Essas ordenanças eram apenas sombras de Cristo. A realidade é Cristo. Paulo liberta a igreja da escravidão de preceitos que têm aparência de sabedoria, mas não têm valor algum para refrear os impulsos da carne.",
-      versiculo: "Colossenses 2:16-17; 23 — 'Portanto, não permitam que ninguém os julgue pelo que vocês comem ou bebem... Essas regras têm, de fato, aparência de sabedoria... mas não têm valor algum para refrear os impulsos da carne.'"
+      versiculo: "Colossenses 2:16-17; 23 — <strong>Portanto, não permitam que ninguém os julgue pelo que vocês comem ou bebem... Essas regras têm, de fato, aparência de sabedoria... mas não têm valor algum para refrear os impulsos da carne.</strong>"
     },
     {
       categoria: "Comportamento e Estilo de Vida",
       problemaColossos: "Ascetismo e Autonegação: A crença de que castigar o corpo e evitar o mundo físico por completo gera santidade interna.",
       equivalenteModerno: "Moralismo de Aparência / Isolacionismo: A ideia de que a santidade é medida pelo afastamento puritano absoluto da sociedade ou por privações voluntárias impressionantes.",
       solucaoCarta: "A verdadeira santidade é interna e vem da ressurreição com Cristo. Devemos buscar as coisas lá de cima e fazer morrer a natureza terrena no coração, não apenas nas regras externas.",
-      versiculo: "Colossenses 3:1-3; 5 — 'Portanto, visto que vocês ressuscitaram com Cristo, procurem as coisas do alto... Mantenham o pensamento nas coisas do alto, e não nas coisas terrenas... Assim, façam morrer tudo o que pertence à natureza terrena de vocês...'"
+      versiculo: "Colossenses 3:1-3; 5 — <strong>Portanto, visto que vocês ressuscitaram com Cristo, procurem as coisas do alto... Mantenham o pensamento nas coisas do alto, e não nas coisas terrenas... Assim, façam morrer tudo o que pertence à natureza terrena de vocês...</strong>"
     }
   ],
 
