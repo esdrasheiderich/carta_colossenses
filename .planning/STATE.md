@@ -78,6 +78,12 @@ None yet.
 |----------|------|--------|-------------|
 | *(none)* | | | |
 
+## Quick Tasks Completed
+
+| Slug | Date | Description | Status |
+|------|------|-------------|--------|
+| ajustar-versiculos-hino | 2026-06-09 | Corrigir mapeamento dos versículos do hino de Colossenses 1:15-20 | complete ✓ |
+
 ## Session Continuity
 
 Last session: 2026-06-05T19:49:35.916Z

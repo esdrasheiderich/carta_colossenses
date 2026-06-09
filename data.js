@@ -201,30 +201,37 @@ const DATA = {
 
   hino: [
     {
+      versiculo: "15",
       verso: "Ele é a imagem do Deus invisível, o primogênito de toda a criação,",
       exegese: "A palavra grega para imagem é 'eikon', que significa representação perfeita e manifestação visível do próprio Deus. 'Primogênito' (prototokos) não significa o primeiro criado no tempo, mas denota supremacia, herança e prioridade de soberania sobre toda a ordem criada, como o herdeiro universal."
     },
     {
+      versiculo: "16a",
       verso: "pois nele foram criadas todas as coisas, nos céus e na terra, as visíveis e as invisíveis...",
       exegese: "Refuta diretamente o misticismo e as filosofias gnósticas incipientes que ensinavam que o mundo físico foi criado por divindades inferiores (demiurgos) e que o mundo invisível continha intermediários espirituais que exigiam adoração. Paulo coloca Jesus como a fonte direta de toda a criação."
     },
     {
+      versiculo: "16b",
       verso: "sejam tronos ou soberanias, poderes ou autoridades; todas as coisas foram criadas por ele e para ele.",
       exegese: "Os termos 'tronos', 'soberanias', 'poderes' e 'autoridades' eram categorias angelicais e espirituais que a heresia colossense tentava cultuar. Paulo rebaixa esses seres espirituais à condição de meros subordinados de Jesus: eles foram criados por Ele e para servir ao Seu propósito divino."
     },
     {
+      versiculo: "17",
       verso: "Ele é antes de todas as coisas, e nele tudo subsiste.",
       exegese: "Jesus possui preexistência eterna (Ele existia antes do universo). Ele também é o sustentador cósmico: 'subsiste' (synesteken) indica que Ele mantém o universo coeso, impedindo-o de cair no caos. O cosmos não é autossuficiente; ele depende continuamente de Cristo."
     },
     {
+      versiculo: "18",
       verso: "Ele é a cabeça do corpo, que é a igreja; é o princípio e o primogênito dentre os mortos, para que em tudo tenha a supremacia,",
       exegese: "Transição da criação física para a nova criação espiritual. Como 'cabeça' (kephale), Jesus é a fonte de vida, direção e autoridade da Igreja. Ele inaugurou a ressurreição ao vencer a morte definitivamente, estabelecendo Sua supremacia absoluta em todas as dimensões da existência."
     },
     {
+      versiculo: "19",
       verso: "Pois foi do agrado de Deus que nele habitasse toda a plenitude,",
       exegese: "A palavra 'plenitude' (pleroma) era um termo técnico usado por falsos mestres para descrever a soma total dos poderes e emanações divinas espalhadas pelo cosmos. Paulo afirma que a divindade não está fragmentada: 100% da plenitude de Deus habita corporalmente em Cristo Jesus."
     },
     {
+      versiculo: "20",
       verso: "e por meio dele reconciliasse consigo todas as coisas, estabelecendo a paz pelo seu sangue derramado na cruz.",
       exegese: "A cruz não foi uma derrota trágica, mas o altar de reconciliação cósmica. O 'sangue derramado na cruz' é o preço físico que restabeleceu a harmonia violada pelo pecado, conectando a humanidade e o universo de volta ao Criador, destruindo a necessidade de rituais ascéticos ou intermediários místicos."
     }

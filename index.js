@@ -545,7 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Adiciona active no clicado
         verseCard.classList.add("active");
 
-        renderExegesis(item, index + 15);
+        renderExegesis(item, item.versiculo);
       });
 
       hinoVerseList.appendChild(verseCard);
