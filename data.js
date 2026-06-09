@@ -241,28 +241,28 @@ const DATA = {
     {
       categoria: "Teologia e Doutrina",
       problemaColossos: "Sincretismo Religioso: Misturar o Evangelho com filosofias pagãs, misticismo oriental e tradições humanas para <strong>completar</strong> a fé.",
-      equivalenteModerno: "Teologia Sincretista / <strong>Espiritualidade Fluida</strong>: A ideia de que Jesus é bom, mas precisamos de astrologia, coaching quântico, filosofias orientais ou ativismo secular para ter plenitude.",
+      equivalenteModerno: "<strong>Teologia Sincretista / Espiritualidade Fluida</strong>: A ideia de que Jesus é bom, mas precisamos de astrologia, coaching quântico, filosofias orientais ou ativismo secular para ter plenitude.",
       solucaoCarta: "Paulo exalta que em Cristo habita a plenitude divina e que os crentes estão completos Nele, não precisando de acréscimos filosóficos ou místicos.",
       versiculo: "Colossenses 2:8-10 — <strong>Tenham cuidado para que ninguém os escravize a filosofias vãs e enganosas... pois em Cristo habita corporalmente toda a plenitude da divindade, e nele vocês receberam a plenitude...</strong>"
     },
     {
       categoria: "Espiritualidade e Misticismo",
       problemaColossos: "Culto aos Anjos e Visões: Uma busca por experiências místicas extravagantes e intermediários espirituais acima do próprio Cristo.",
-      equivalenteModerno: "Misticismo Gospel / Hiperespiritualização: Obsessão por revelações extra-bíblicas, anjos, profecias pessoais e experiências emocionais/extravagantes como base da comunhão.",
+      equivalenteModerno: "<strong>Misticismo Gospel / Hiperespiritualização</strong>: Obsessão por revelações extra-bíblicas, anjos, profecias pessoais e experiências emocionais/extravagantes como base da comunhão.",
       solucaoCarta: "Paulo condena a soberba espiritual de quem se apoia em visões e enfatiza a necessidade de permanecer firmemente <strong>unida à Cabeça</strong> que é Cristo, de quem todo o corpo recebe crescimento.",
       versiculo: "Colossenses 2:18-19 — <strong>Não permitam que ninguém que tenha prazer numa falsa humildade e na adoração de anjos os impeça de alcançar o prêmio... não estando unida à Cabeça...</strong>"
     },
     {
       categoria: "Prática e Liturgia",
       problemaColossos: "Legalismo Ritualístico: Imposição de regras humanas rígidas sobre comida, bebida, festas e sábados como termômetro de espiritualidade.",
-      equivalenteModerno: "Legalismo Eclesiástico / Julgamento Externo: Julgar a comunhão com Deus baseando-se em vestuário, costumes rígidos, restrições alimentares ou agendas ativistas humanas.",
+      equivalenteModerno: "<strong>Legalismo Eclesiástico / Julgamento Externo</strong>: Julgar a comunhão com Deus baseando-se em vestuário, costumes rígidos, restrições alimentares ou agendas ativistas humanas.",
       solucaoCarta: "Essas ordenanças eram apenas sombras de Cristo. A realidade é Cristo. Paulo liberta a igreja da escravidão de preceitos que têm aparência de sabedoria, mas não têm valor algum para refrear os impulsos da carne.",
       versiculo: "Colossenses 2:16-17; 23 — <strong>Portanto, não permitam que ninguém os julgue pelo que vocês comem ou bebem... Essas regras têm, de fato, aparência de sabedoria... mas não têm valor algum para refrear os impulsos da carne.</strong>"
     },
     {
       categoria: "Comportamento e Estilo de Vida",
       problemaColossos: "Ascetismo e Autonegação: A crença de que castigar o corpo e evitar o mundo físico por completo gera santidade interna.",
-      equivalenteModerno: "Moralismo de Aparência / Isolacionismo: A ideia de que a santidade é medida pelo afastamento puritano absoluto da sociedade ou por privações voluntárias impressionantes.",
+      equivalenteModerno: "<strong>Moralismo de Aparência / Isolacionismo</strong>: A ideia de que a santidade é medida pelo afastamento puritano absoluto da sociedade ou por privações voluntárias impressionantes.",
       solucaoCarta: "A verdadeira santidade é interna e vem da ressurreição com Cristo. Devemos buscar as coisas lá de cima e fazer morrer a natureza terrena no coração, não apenas nas regras externas.",
       versiculo: "Colossenses 3:1-3; 5 — <strong>Portanto, visto que vocês ressuscitaram com Cristo, procurem as coisas do alto... Mantenham o pensamento nas coisas do alto, e não nas coisas terrenas... Assim, façam morrer tudo o que pertence à natureza terrena de vocês...</strong>"
     }
