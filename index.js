@@ -570,9 +570,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ==========================================
-  // 7. MATRIZ DE CONEXÕES ECLESIAIS (APLICAÇÕES)
+  // 7. MATRIZ DE CONEXÕES ECLESIAIS (APLICAÇÕES) & MODAL
   // ==========================================
   const matrixContainer = document.getElementById("matrix-container");
+  const modalAplicacao = document.getElementById("aplicacao-modal");
+  const modalAplicacaoClose = document.getElementById("aplicacao-modal-close");
+  const modalAplicacaoTag = document.getElementById("aplicacao-modal-tag");
+  const modalAplicacaoTitle = document.getElementById("aplicacao-modal-title");
+  const modalAplicacaoProblema = document.getElementById("aplicacao-modal-problema");
+  const modalAplicacaoEquivalente = document.getElementById("aplicacao-modal-equivalente");
+  const modalAplicacaoSolucao = document.getElementById("aplicacao-modal-solucao");
+  const modalAplicacaoVersiculo = document.getElementById("aplicacao-modal-versiculo");
 
   function renderMatrix() {
     if (!matrixContainer) return;
@@ -609,12 +617,49 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
 
+      card.addEventListener("click", () => {
+        if (!modalAplicacao) return;
+
+        // Preenche o modal
+        modalAplicacaoTag.textContent = "Aplicação Eclesial";
+        modalAplicacaoTitle.textContent = item.categoria;
+        modalAplicacaoProblema.innerHTML = item.problemaColossos;
+        modalAplicacaoEquivalente.innerHTML = item.equivalenteModerno;
+        modalAplicacaoSolucao.innerHTML = item.solucaoCarta;
+        modalAplicacaoVersiculo.innerHTML = item.versiculo;
+
+        // Abre o modal
+        modalAplicacao.classList.add("open");
+
+        if (typeof lucide !== "undefined") {
+          lucide.createIcons();
+        }
+      });
+
       matrixContainer.appendChild(card);
     });
 
     if (typeof lucide !== "undefined") {
       lucide.createIcons();
     }
+  }
+
+  function closeAplicacaoModal() {
+    if (modalAplicacao) {
+      modalAplicacao.classList.remove("open");
+    }
+  }
+
+  if (modalAplicacaoClose) {
+    modalAplicacaoClose.addEventListener("click", closeAplicacaoModal);
+  }
+
+  if (modalAplicacao) {
+    modalAplicacao.addEventListener("click", (e) => {
+      if (e.target === modalAplicacao) {
+        closeAplicacaoModal();
+      }
+    });
   }
 
   renderMatrix();
